@@ -1,3 +1,11 @@
+# TeX output
+comment.cut
+thinkgo.aux
+thinkgo.idx
+thinkgo.log
+thinkgo.pdf
+thinkgo.toc
+
 # Binaries for programs and plugins
 *.exe
 *.dll
