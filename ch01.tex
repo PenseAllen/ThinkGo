@@ -12,16 +12,16 @@ And like scientists, they observe the behavior of complex systems, form hypothes
 An important skill for a computer scientist is {\bf problem solving}.
 It involves the ability to formulate problems, think creatively about solutions, and express solutions clearly and accurately.
 As it turns out, the process of learning to program computers is an excellent opportunity to develop problem-solving skills.
-%That's why this chapter is called, ``The way of the program''.
-On one level you will be learning to write Java programs, a useful skill by itself.
-But on another level you will use programming as a means to an end.
+On one level, you will be learning to program, a useful skill by itself.
+On another level, you will use programming as a means to an end.
 As we go along, that end will become clearer.
 
 
 \section{What is a computer?}
 
-Usually when people hear the word computer, they think of a desktop or laptop.
-Not surprisingly, searching for ``computer'' on \href{https://images.google.com/}{\tt images.google.com} displays rows and rows of these types of machines.
+Usually when people hear the word computer, they think of a laptop or desktop.
+Not surprisingly, searching for ``computer'' on \href{https://images.google.com/}{\tt images.google.com}
+displays rows and rows of these types of machines.
 However, in a more general sense, a computer can be any type of device that stores and processes data.
 
 \href{http://www.dictionary.com/browse/computer}{\tt Dictionary.com} defines a computer as ``a programmable electronic device designed to accept data, perform prescribed mathematical and logical operations at high speed, and display the results of these operations.
@@ -34,7 +34,7 @@ Mainframes, desktop and laptop computers, tablets, and smartphones are some of t
 \index{RAM}
 
 Each type of computer has its own unique design, but internally they all share the same type of {\bf hardware}.
-The two most important hardware components are {\bf processors} (or CPUs) that perform simple calculations and {\bf memory} (or RAM) that temporarily stores information.
+The two most important hardware components are {\bf processors} that perform simple calculations and {\bf memory} (or RAM) that temporarily stores information. Processors are also called CPUs -- central processing units. A modern CPU, however, usually has more than one processor inside it.
 Figure~\ref{fig.cpuram} shows what these components look like.
 
 \begin{figure}[!ht]
@@ -49,8 +49,15 @@ Figure~\ref{fig.cpuram} shows what these components look like.
 \end{center}
 \end{figure}
 
-Users generally see and interact with touchscreens, keyboards, and monitors, but it's the processors and memory that perform the actual computation.
-Nowadays it's fairly standard, even for a smartphone, to have at least eight processors and four gigabytes (four billion cells) of memory.
+In 2018 it's common, even for a smartphone, to have four processors and four gigabytes (four billion cells) of memory.
+Users generally see and interact with touchscreens, keyboards, and monitors, but it's the processors and memory that perform the actual computations.
+
+When Netflix rents computers from Amazon.com to offer streaming video, what Amazon actually provides is access to server machines that have processors and memory, but no screens or keyboards.
+
+Processors and memory is where computing happens, but they are useless without input/ouput (I/O) devices to receive and send data.
+Keyboards and screens are I/O devices, as are the Wifi radios embedded in laptops and smartphones.
+Servers like Amazon's have one main I/O device: a network interface which ultimately connects to the laptop where you watch movies.
+The Go language was designed primarily to program network connected servers.
 
 
 \section{What is programming?}
@@ -64,8 +71,8 @@ It could also be a symbolic computation, like searching and replacing text in a 
 The details look different in different languages, but a few basic instructions appear in just about every language:
 
 \begin{description}
-\item[input:] Get data from the keyboard, a file, a sensor, or some other device.
-\item[output:] Display data on the screen, or send data to a file or other device.
+\item[input:] Get data from the keyboard, a file, the network, a camera, or some other device like a temperature sensor.
+\item[output:] Display data on the screen, write it to a file, send it over the network, or activate a device like a door lock.
 \item[math:] Perform basic mathematical operations like addition and division.
 \item[decisions:] Check for certain conditions and execute the appropriate code.
 \item[repetition:] Perform some action repeatedly, usually with some variation.
@@ -77,6 +84,8 @@ Believe it or not, that's pretty much all there is to it.
 Every program you've ever used, no matter how complicated, is made up of small instructions that look much like these.
 So you can think of {\bf programming} as the process of breaking down a large, complex task into smaller and smaller subtasks.
 The process continues until the subtasks are simple enough to be performed with the electronic circuits provided by the hardware.
+
+% LR: 2018-01-08
 
 
 \section{The hello world program}
@@ -245,14 +254,14 @@ This ability is an advantage of Java over some other high-level languages.
 \index{JVM}
 
 Figure~\ref{fig.compiler} shows the steps of the development process.
-The Java compiler is a program named {\tt javac}.
-It translates {\tt .java} files into {\tt .class} files that store the resulting byte code.
-The Java interpreter is a program named {\tt java}, which is short for ``Java Virtual Machine'' (JVM).
+We use the command {\tt go build} to run the Go compile.
+It translates {\tt .go} files into binary executable files that store the resulting machine code.
+To run the executable, we just call it by name on the command line.
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics{figs/compiler.pdf}
-\caption{The process of compiling and running a Java program.}
+\includegraphics{figs/compiler.png}
+\caption{The process of compiling and running a Go program.}
 \label{fig.compiler}
 \end{center}
 \end{figure}
@@ -533,6 +542,8 @@ Finally, programming sometimes brings out strong emotions.
 If you are struggling with a difficult bug, you might feel angry, despondent, or embarrassed.
 Remember that you are not alone, and virtually every programmer has had similar experiences.
 Don't hesitate to reach out to a friend and ask questions!
+
+%That's why this chapter is called, ``The way of the program''.
 
 
 \section{Vocabulary}
