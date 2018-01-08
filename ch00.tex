@@ -3,19 +3,20 @@
 \markboth{PREFACE}{PREFACE}
 \addcontentsline{toc}{chapter}{Preface}
 
-{\it Think Java} is an introduction to computer science and programming intended for readers with little or no experience.
+{\it Think Go} is an introduction to computer science and programming intended for readers with little or no experience.
 We start with the most basic concepts and are careful to define all terms when they are first used.
 The book presents each new idea in a logical progression.
-Larger topics, like control flow statements and object-oriented programming, are divided into smaller examples and introduced over the course of several chapters.
+Larger topics, like control flow statements and interfaces, are divided into smaller examples and introduced over the course of several chapters.
 
 This book is intentionally concise.
 Each chapter is 12--14 pages and covers the material for one week of a college course.
-It is not meant to be a comprehensive presentation of Java, but rather, an initial exposure to programming constructs and techniques.
-We begin with small problems and basic algorithms and work up to object-oriented design.
-In the vocabulary of computer science pedagogy, this book uses the ``objects late'' approach.
+It is not meant to be a comprehensive presentation of Go, but rather, an initial exposure to programming constructs and techniques.
+We begin with small problems and basic algorithms and work up to program and library design.
 
 
 \section*{The philosophy behind the book}
+
+The chapters of this book are meant to be read in order, because each one builds on the previous one.
 
 Here are the guiding principles that make the book the way it is:
 
@@ -24,8 +25,8 @@ Here are the guiding principles that make the book the way it is:
 \item {\em One concept at a time.}
 We break down topics that give beginners trouble into a series of small steps, so that they can exercise each new concept in isolation before continuing.
 
-\item {\em Balance of Java and concepts.}
-The book is not primarily about Java; it uses code examples to demonstrate computer science.
+\item {\em Balance of Go and concepts.}
+The book is not primarily about Go; it uses code examples to demonstrate computer science.
 Most chapters start with language features and end with concepts.
 
 \item {\em Conciseness.}
@@ -44,10 +45,10 @@ We demonstrate multiple program development techniques, allowing readers to choo
 To write a program, you have to understand the algorithm, know the programming language, and be able to debug errors.
 We discuss these and other aspects throughout the book, and include an appendix that summarizes our advice.
 
-%\item {\em Spiral approach.}
-%Some concepts take time to sink in.
-%The more difficult ideas in the book, like recursion, appear several times.
-%By coming back to these topics, we give learners a chance to review and reinforce.
+\item {\em Spiral approach.}
+Some concepts take time to sink in.
+The more difficult ideas in the book, like recursion, appear several times.
+By coming back to these topics, we give learners a chance to review and reinforce.
 
 %\item {\em Keep it simple.}
 %We use the minimum amount of Java to get the maximum amount of programming ability.
@@ -56,105 +57,24 @@ We discuss these and other aspects throughout the book, and include an appendix 
 
 \end{itemize}
 
-
-\section*{Object-oriented programming}
-
-Some Java books introduce classes and objects immediately; others begin with procedural programming and transition to object-oriented more gradually.
-
-Many of Java's object-oriented features are motivated by problems with previous languages, and their implementations are influenced by this history.
-Some of these features are hard to explain when people aren't familiar with the problems they solve.
-
-We get to object-oriented programming as quickly as possible (beginning with Chapter~\ref{immutable}).
-But we introduce concepts one at a time, as clearly as possible, in a way that allows readers to practice each idea in isolation before moving on.
-So it takes some time to get there.
-
-You can't write Java programs (even hello world) without encountering object-oriented features.
-In some cases we explain a feature briefly when it first appears, and then explain it more deeply later on.
-
-This book is well suited to prepare students for the AP Computer Science A exam, which includes object-oriented design and implementation.
-(AP is a registered trademark of the College Board.)
-We introduce nearly every topic in the ``AP Java subset'' with a few exceptions.
-A mapping of {\it Think Java} section numbers to the current AP course description is available on our website: \url{http://thinkjava.org/}.
-
-
-\section*{Changes to the 2nd edition}
-
-This new edition is three years in the making, with feedback from dozens of instructors and hundreds of students.
-A complete history of all changes is available on GitHub.
-Here are some of the highlights:
-
-\begin{description}
-
-\item[Chapters 1--4:]
-
-We reordered the material in Chapter~1 to present a more interesting balance of theory and practice.
-Chapters 2--3 are much cleaner now too.
-Methods are now presented in a single chapter, along with additional in-depth examples.
-
-\item[Chapters 5--8:]
-
-These chapters received the most attention.
-We rearranged the content, added many examples and new figures, and removed unnecessary details.
-Strings are covered earlier (before arrays) so that readers can apply them to loop problems.
-The material on recursion is now a chapter, and we added new sections to explain binary numbers and CodingBat problems.
-
-\item[Chapters 9--12:]
-
-Our main goal for these chapters was to provide better explanations and more diagrams.
-Chapters~9 and 10 focus more on immutable vs mutable objects, and we added new sections on BigInteger and StringBuilder.
-The other content is largely the same, but it should be easier to understand now.
-
-\item[Chapters 13--16:]
-
-We balanced the amount of content in Chapters~13--14 by moving ArrayLists earlier, and we implement the ``War'' card game as another example.
-Chapters~15--16 are brand new in this edition, and they cover more advanced topics including interfaces, polymorphism, and multi-dimensional arrays.
-
-\item[Appendixes:]
-
-We added Appendix~\ref{javadoc} to explain documentation comments and Javadoc in more detail.
-%Most of the examples in the chapters do not include documentation comments to save space.
-The other three appendixes that were present in the first edition have been revised for clarity and layout.
-
-\end{description}
-
-
 \section*{About the appendixes}
 
-The chapters of this book are meant to be read in order, because each one builds on the previous one.
 We also include several appendixes with material that can be read at any time:
 
 \begin{description}
-
-\item{\bf Appendix A: Tools}
-
-This appendix explains how to download and install Java so you can compile programs on your computer.
-It also provides a brief introduction to DrJava -- an ``integrated development environment'' (IDE) that is designed primarily for students -- and other development tools, including Checkstyle for code quality and JUnit for testing.
-
-\item{\bf Appendix B: Javadoc}
-
-It's important to document your classes and methods so that other programmers (including yourself in the future) will know how to use them.
-This appendix explains how to read documentation, how to write documentation, and how to use the Javadoc tool.
-
-\item{\bf Appendix C: Graphics}
-
-Java provides libraries for working with graphics and animation, and these topics can be engaging for students.
-The libraries require object-oriented features that students will not completely understand until after Chapter~\ref{mutable}, but they can be used much earlier.
 
 \item{\bf Appendix D: Debugging}
 
 We provide debugging suggestions throughout the book, but we also have an appendix with many more suggestions on how to debug your programs.
 We recommend that readers review this appendix frequently as they work through the book.
 
-\item{\bf Appendix E: Extras}
-
-With each new edition, we add new material, remove old material, and revise everything else.
-Some of the old material may still be useful, so rather than delete it, we moved it to this appendix.
-
 \end{description}
 
 
 \section*{Using the code examples}
 \label{code}
+
+Everything after this paragraph is unedited text from {\it Think Java 2e}. Please forgive the noise and dust while we remix that book and {\it Think Python 2e} to make {\it Think Go}.
 
 Most of the code examples in this book are available from a Git repository at \url{https://github.com/ChrisMayfield/ThinkJavaCode2}.
 Git is a ``version control system'' that allows you to keep track of the files that make up a project.
