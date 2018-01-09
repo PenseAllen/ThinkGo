@@ -85,30 +85,23 @@ Every program you've ever used, no matter how complicated, is made up of small i
 So you can think of {\bf programming} as the process of breaking down a large, complex task into smaller and smaller subtasks.
 The process continues until the subtasks are simple enough to be performed with the electronic circuits provided by the hardware.
 
-% LR: 2018-01-08
-
-
 \section{The hello world program}
 \label{hello}
 
 Traditionally, the first program you write when learning a new programming language is called the hello world program.
-All it does is output the words ``Hello, World!''\ to the screen.
-In Java, it looks like this:
+All it does is display the words ``Hello, World!''\ on the terminal.
+In Go, it looks like this:
 
-% NOTE(ABD): I changed a lot of ``print'' to ``display'', partly to be
-% more precise, but also to reduce the number of times ``print'' appears,
-% which is a lot!
-
-\index{Hello.java}
+\index{hello.go}
 
 % height = 130 + 15 * num_lines
-\begin{trinket}[235]{Hello.java}
-public class Hello {
+\begin{trinket}[235]{hello.go}
+package main
 
-    public static void main(String[] args) {
-        // generate some simple output
-        System.out.println("Hello, World!");
-    }
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
 }
 \end{trinket}
 
@@ -120,6 +113,30 @@ Hello, World!
 
 Notice that the output does not include the quotation marks.
 
+
+\index{function}
+\index{Println function}
+
+Go programs are made up of {\em function} definitions, and functions are made up of {\em statements}.
+A {\bf statement} is a line of code that performs a basic action.
+The usual way of performing actions is by calling functions that are written by others, such as the Go authors.
+So you write functions and your functions, in turn, call other functions.
+In the hello world program, this statement calls the {\bf Println} function to display a message on the screen:
+
+\begin{code}
+	fmt.Println("Hello, World!")
+\end{code}
+
+\index{println}
+\index{semicolon}
+\index{; semicolon}
+
+\java{fmt.Println} displays results on the screen; the name \java{Println} stands for ``print line''.
+Confusingly, {\em print} can mean both ``display on the screen'' and ``send to the printer''.
+In this book, we'll try to say ``display'' when we mean output to the screen.
+
+\index{case-sensitive}
+
 %\index{public}
 %\index{static}
 %The word \java{public} means the code can be accessed from other source files.
@@ -129,57 +146,37 @@ Notice that the output does not include the quotation marks.
 %In fact, we won't be able to explain all of them for several more chapters.
 %But we can start with the structure.
 
-\index{statement}
-\index{print statement}
 
-Java programs are made up of {\em class} and {\em method} definitions, and methods are made up of {\em statements}.
-A {\bf statement} is a line of code that performs a basic action.
-In the hello world program, this line is a {\bf print statement} that displays a message on the screen:
+Go is ``case-sensitive'', which means that uppercase and lowercase are not the same.
+In this example, \java{Println} has to begin with an uppercase letter; \java{println} and \java{PRINTLN} won't work.
 
-\begin{code}
-System.out.println("Hello, World!");
-\end{code}
+\index{main function}
 
-\index{println}
-\index{semicolon}
-\index{; semicolon}
-
-\java{System.out.println} displays results on the screen; the name \java{println} stands for ``print line''.
-Confusingly, {\em print} can mean both ``display on the screen'' and ``send to the printer''.
-In this book, we'll try to say ``display'' when we mean output to the screen.
-Like most statements, the print statement ends with a semicolon (\java{;}).
-
-\index{case-sensitive}
-
-Java is ``case-sensitive'', which means that uppercase and lowercase are not the same.
-In this example, \java{System} has to begin with an uppercase letter; \java{system} and \java{SYSTEM} won't work.
-
-\index{method}
-
-A {\bf method} is a named sequence of statements.
-This program defines one method named \java{main}:
+A {\bf function} is a named sequence of statements.
+This program defines one function named \java{main}:
 
 \begin{code}
-public static void main(String[] args)
+func main()
 \end{code}
 
 \index{main}
 
-The name and format of \java{main} is special: when the program runs, it starts at the first statement in \java{main} and ends when it finishes the last statement.
-Later, we will see programs that define more than one method.
+The name \java{main} is special: when the program runs, it starts at the first statement in \java{main} and ends when it finishes the last statement.
+Later, we will see programs that define more than one function.
 
-\index{class}
+\index{package}
 
-A {\bf class} is a collection of methods.
-This program defines a class named \java{Hello}.
-You can give a class any name you like, but it is conventional to start with a capital letter.
+A {\bf package} is a collection of functions.
+This program defines a package named \java{main}.
+% LR: 2018-01-09: confirm rules for package names
+You can give a package any name you like, but it is conventional to start with a capital letter.
 The name of the class has to match the name of the file it is in, so this class has to be in a file named {\tt Hello.java}.
 
 \index{\{\} curly braces}
 \index{brackets!curly}
 
-Java uses curly braces (\{ and \}) to group things together.
-In {\tt Hello.java}, the outermost braces contain the class definition, and the inner braces contain the method definition.
+Go uses curly braces (\{ and \}) to group things together.
+In {\tt hello.go}, the outermost braces contain the class definition, and the inner braces contain the method definition.
 
 \index{comment!end-of-line}
 \index{statement!comment}
