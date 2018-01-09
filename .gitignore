@@ -6,6 +6,9 @@ thinkgo.log
 thinkgo.pdf
 thinkgo.toc
 
+# Editor files
+.~lock*
+
 # Binaries for programs and plugins
 *.exe
 *.dll
