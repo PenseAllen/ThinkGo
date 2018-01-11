@@ -34,7 +34,9 @@ Mainframes, desktop and laptop computers, tablets, and smartphones are some of t
 \index{RAM}
 
 Each type of computer has its own unique design, but internally they all share the same type of {\bf hardware}.
-The two most important hardware components are {\bf processors} that perform simple calculations and {\bf memory} (or RAM) that temporarily stores information. Processors are also called CPUs -- central processing units. A modern CPU, however, usually has more than one processor inside it.
+The two most important hardware components are {\bf processors} that perform simple calculations and 
+{\bf memory} (or RAM) that temporarily stores information.
+Processors are also called CPUs -- central processing units. A modern CPU, however, usually has more than one processor inside it.
 Figure~\ref{fig.cpuram} shows what these components look like.
 
 \begin{figure}[!ht]
@@ -52,7 +54,8 @@ Figure~\ref{fig.cpuram} shows what these components look like.
 In 2018 it's common, even for a smartphone, to have four processors and four gigabytes (four billion cells) of memory.
 Users generally see and interact with touchscreens, keyboards, and monitors, but it's the processors and memory that perform the actual computations.
 
-When Netflix rents computers from Amazon.com to offer streaming video, what Amazon actually provides is access to server machines that have processors and memory, but no screens or keyboards.
+When Netflix rents computers from Amazon.com to offer streaming video,
+what Amazon actually provides is access to server machines that have processors and memory, but no screens or keyboards.
 
 Processors and memory is where computing happens, but they are useless without input/ouput (I/O) devices to receive and send data.
 Keyboards and screens are I/O devices, as are the Wifi radios embedded in laptops and smartphones.
@@ -105,7 +108,25 @@ func main() {
 }
 \end{lstlisting}
 
-When this program runs it displays:
+The official Go site provides a ``playground'' where you can run simple programs without installing anything.
+We typed the {\tt hello.go} program above and saved it in the playground in this URL:
+
+\url{https://play.golang.org/p/ziqS3mE3_nB}
+
+If you open that address in a browser, you'll see a page similar to Figure~\ref{fig.playhello}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics{figs/play-hello.png}
+\caption{The hello world program in the Go playground.}
+\label{fig.playhello}
+\end{center}
+\end{figure}
+
+The page you'll see does not have the text {\tt Hello, World!} in that lower area,
+because you need to run the program to see the output it produces.
+Click on the blue button labeled {\bf Run}. You may briefly see the message {\tt Waiting for remote server...},
+and then the output will be shown:
 
 \begin{stdout}
 Hello, World!
