@@ -92,7 +92,7 @@ The process continues until the subtasks are simple enough to be performed with 
 \label{hello}
 
 Traditionally, the first program you write when learning a new programming language is called the hello world program.
-All it does is display the words ``Hello, World!''\ on the terminal.
+All it does is display the words ``Hello, World!''\ on the screen.
 In Go, it looks like this:
 
 \index{hello.go}
@@ -117,21 +117,16 @@ If you open that address in a browser, you'll see a page similar to Figure~\ref{
 
 \begin{figure}[!ht]
 \begin{center}
-\includegraphics{figs/play-hello.png}
-\caption{The hello world program in the Go playground.}
+\includegraphics[width=1.0\textwidth]{figs/play-hello.png}
+\caption{The hello world program in the Go playground (after running).}
 \label{fig.playhello}
 \end{center}
 \end{figure}
 
-The page you'll see does not have the text {\tt Hello, World!} in that lower area,
+The page you'll see does not have the text {\tt Hello, World!} in that lower white area,
 because you need to run the program to see the output it produces.
 Click on the blue button labeled {\bf Run}. You may briefly see the message {\tt Waiting for remote server...},
-and then the output will be shown:
-
-\begin{stdout}
-Hello, World!
-\end{stdout}
-
+and then the output will appear as pictured. 
 Notice that the output does not include the quotation marks.
 
 
@@ -142,7 +137,7 @@ Go programs are made up of {\em function} definitions, and functions are made up
 A {\bf statement} is a line of code that performs a basic action.
 The usual way of performing actions is by calling functions that are written by others, such as the Go authors.
 So you write functions and your functions, in turn, call other functions.
-In the hello world program, this statement calls the {\bf Println} function to display a message on the screen:
+In the hello world program, this statement calls the \java{Println} function to display a message on the screen:
 
 \begin{lstlisting}
 	fmt.Println("Hello, World!")
@@ -256,9 +251,6 @@ Once a program is compiled, you can execute it repeatedly without further transl
 As a result, compiled programs often run faster than interpreted programs.
 
 Figure~\ref{fig.compiler} shows the steps of the development process.
-We use the command {\tt go build} to run the Go compile.
-It translates {\tt .go} files into binary executable files that store the resulting machine code.
-To run the executable, we just call it by name on the command line.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -267,6 +259,15 @@ To run the executable, we just call it by name on the command line.
 \label{fig.compiler}
 \end{center}
 \end{figure}
+
+The Go playground (shown in Figure~\ref{fig.playhello}) lets us use a Go compiler running on a Google server machine.
+When you hit the {\bf Run} button, the playground Go compiler produces an executable and saves it in the server (if there are no errors).
+The server then runs the executable, and sends its output back to your browser.
+The executable is then discarded, so the Go playground is useful only for quick experiments.
+
+To compile Go programs locally, we need to install the Go distribution, as explained in Appendix XXX. After Go is installed, you can use the {\tt go build} in the terminal.
+
+% LR: 2018-01-10: chose a tone: "you" or "the programmer" (see surrounding paragraphs)
 
 The programmer writes source code in the file {\tt hello.go} and uses {\tt go build} to compile it.
 If there are no errors, the compiler saves the executable in the file {\tt hello} (or {\tt hello.exe}, in Windows).
