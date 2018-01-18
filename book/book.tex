@@ -52,6 +52,23 @@
 \newif\ifplastex
 \plastexfalse
 
+%%% LR: BEGIN additions for Think Go
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{listings-golang} % import this package after listings
+\usepackage{color}
+
+\lstset{ % add your own preferences
+  tabsize=2,
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true
+  language=Golang
+}
+
+
+%%% LR: END OF additions for Think Go
+
+
 \begin{document}
 
 \frontmatter
@@ -194,7 +211,6 @@ The \LaTeX\ source for this book is available from
 
 \end{latexonly}
 
-
 % HTMLONLY
 
 \begin{htmlonly}
@@ -246,6 +262,7 @@ The \LaTeX\ source for this book is available from
 
 \input{ch_b.tex}
 
+\input{ch_c.tex}
 
 
 \printindex
