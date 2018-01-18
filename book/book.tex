@@ -57,11 +57,22 @@
 \usepackage{listings}
 \usepackage{listings-golang} % import this package after listings
 \usepackage{color}
+\usepackage{inconsolata}
+
+\definecolor{myred}{rgb}{0.5,0,0}
+\definecolor{mygreen}{rgb}{0,0.5,0}
+\definecolor{myblue}{rgb}{0,0,0.5}
 
 \lstset{ % add your own preferences
   tabsize=2,
-  basicstyle=\ttfamily\footnotesize,
-  breaklines=true
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{blue}\textbf,
+  keywordstyle=[2]{\color{myblue}},
+  commentstyle=\color{mygreen},
+  stringstyle=\color{myred},
+  showstringspaces=false, 
+  caption=\lstname,
+  captionpos=t, 
   language=Golang
 }
 

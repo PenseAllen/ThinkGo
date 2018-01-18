@@ -23,7 +23,7 @@ $ ls -l *.pdf
 To install LaTeX on Ubuntu 16.04, install these packages:
 
 ```bash
-$ sudo apt install texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+$ sudo apt install texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
 ```
 
 > **Request**: Please contribute instructions for users of other GNU/Linux distros.
