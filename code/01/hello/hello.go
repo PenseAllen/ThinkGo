@@ -3,5 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello, World!")
+	// display traditional greeting
+	fmt.Println("Hello, World!") 
 }

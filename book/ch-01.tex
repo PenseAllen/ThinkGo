@@ -1,35 +1,33 @@
 \chapter{The way of the program}
 
-The goal of this book is to teach you to think like a computer
-scientist.  This way of thinking combines some of the best features of
-mathematics, engineering, and natural science.  Like mathematicians,
-computer scientists use formal languages to denote ideas (specifically
-computations).  Like engineers, they design things, assembling
-components into systems and evaluating tradeoffs among alternatives.
-Like scientists, they observe the behavior of complex systems, form
-hypotheses, and test predictions.  \index{problem solving}
+The goal of this book is to teach you to think like a computer scientist. This
+way of thinking combines some of the best features of mathematics,
+engineering, and natural science. Like mathematicians, computer scientists use
+formal languages to denote ideas (specifically computations). Like engineers,
+they design things, assembling components into systems and evaluating
+tradeoffs among alternatives. Like scientists, they observe the behavior of
+complex systems, form hypotheses, and test predictions. \index{problem
+solving}
 
-The single most important skill for a computer scientist is {\bf
-  problem solving}.  Problem solving means the ability to formulate
-problems, think creatively about solutions, and express a solution
-clearly and accurately.  As it turns out, the process of learning to
-program is an excellent opportunity to practice problem-solving
-skills.  That's why this chapter is called, ``The way of the
-program''.
+The single most important skill for a computer scientist is {\bf problem
+solving}. Problem solving means the ability to formulate problems, think
+creatively about solutions, and express a solution clearly and accurately. As
+it turns out, the process of learning to program is an excellent opportunity
+to practice problem-solving skills. That's why this chapter is called, ``The
+way of the program''.
 
-On one level, you will be learning to program, a useful skill by
-itself.  On another level, you will use programming as a means to an
-end.  As we go along, that end will become clearer.
+On one level, you will be learning to program, a useful skill by itself. On
+another level, you will use programming as a means to an end. As we go along,
+that end will become clearer.
 
 
 \section{What is a program?}
 
-A {\bf program} is a sequence of instructions that specifies how to
-perform a computation.  The computation might be something
-mathematical, such as solving a system of equations or finding the
-roots of a polynomial, but it can also be a symbolic computation, such
-as searching and replacing text in a document or something
-graphical, like processing an image or playing a video.
+A {\bf program} is a sequence of instructions that specifies how to perform a
+computation. The computation might be something mathematical, such as solving
+a system of equations or finding the roots of a polynomial, but it can also be
+a symbolic computation, such as searching and replacing text in a document or
+something graphical, like processing an image or playing a video.
 \index{program}
 
 The details look different in different languages, but a few basic
@@ -37,64 +35,243 @@ instructions appear in just about every language:
 
 \begin{description}
 
-\item[input:] Get data from the keyboard, a file, the network, or some
-other device.
+\item[input:] Get data from the keyboard, a file, the network,  a camera, or
+some other device like a fingerprint reader.
 
-\item[output:] Display data on the screen, save it in a
-file, send it over the network, etc.
+\item[output:] Display data on the screen, save it in a file, send it over the
+network, or control a device such as a door lock.
 
 \item[math:] Perform basic mathematical operations like addition and
 multiplication.
 
-\item[conditional execution:] Check for certain conditions and
-run the appropriate code.
+\item[decisions:] Check for certain conditions to determine whether to perform
+some action. For example: if the fingerprint matches, unlock the door.
 
-\item[repetition:] Perform some action repeatedly, usually with
-some variation.
+\item[repetition:] Perform some action repeatedly, usually with some
+variation.
 
 \end{description}
 
-Believe it or not, that's pretty much all there is to it.  Every
-program you've ever used, no matter how complicated, is made up of
-instructions that look pretty much like these.  So you can think of
-programming as the process of breaking a large, complex task
-into smaller and smaller subtasks until the subtasks are
-simple enough to be performed with one of these basic instructions.
+Believe it or not, that's pretty much all there is to it. Every program you've
+ever used, no matter how complicated, is made up of instructions that look
+pretty much like these. So you can think of programming as the process of
+breaking a large, complex task into smaller and smaller subtasks until the
+subtasks are simple enough to be performed with one of these basic
+instructions.
 
 
-\section{Running Python}
+\section{Running Go}
+\index{Go!running}
 
-One of the challenges of getting started with Python is that you
-might have to install Python and related software on your computer.
-If you are familiar with your operating system, and especially
-if you are comfortable with the command-line interface, you will
-have no trouble installing Python.  But for beginners, it can be
-painful to learn about system administration and programming at the
+One of the challenges of getting started with Go is that you might have to
+install Go and related software on your computer. If you are familiar with
+your operating system, and especially if you are comfortable with the command-
+line interface, you will have no trouble installing Go. But for beginners, it
+can be distracting to learn about system administration and programming at the
 same time.
-\index{running Python}
-\index{Python!running}
 
-To avoid that problem, I recommend that you start out running Python
-in a browser.  Later, when you are comfortable with Python, I'll
-make suggestions for installing Python on your computer.
-\index{Python in a browser}
+To avoid that problem, we recommend that you start out using the
+{\it Go Playground}:
+\index{Go Playground}
 
-There are a number of web pages you can use to run Python.  If you
-already have a favorite, go ahead and use it.  Otherwise I recommend
-PythonAnywhere.  I provide detailed instructions for getting started
-at \url{http://tinyurl.com/thinkpython2e}.  
+\url{https://play.golang.org/}
+
+The {\it Go Playground} lets you type or paste Go code and click a button
+to run it, without installing anything. It is limited in many ways, but good
+enough to get started. After you've taken the first steps, we'll provide
+instructions for installing Go on your computer.\footnote{If you can't wait to
+install Go, Appendix A explains how.}
+
+
+\section{The hello world program}
+\label{hello}
+
+Traditionally, the first program you write when learning a new programming
+language is called the hello world program. All it does is display the
+words ``Hello, World!''\ on the screen.
+In Go, it looks like this:
+
+\index{hello.go}
+\lstinputlisting[language=Golang,label=lst:hello.go]{01/hello/hello.go}
+
+We typed listing \ref{lst:hello.go} and saved it in the playground.
+Follow this link to see it:
+
+\url{https://tgo.li/2r8yCXj}
+
+If you open that address in a browser, you'll see a page similar to Figure~\ref{fig:playhello}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=1.0\textwidth]{figs/play-hello.png}
+\caption{The hello world program in the Go playground (after running).}
+\label{fig:playhello}
+\end{center}
+\end{figure}
+
+To execute the program, click the blue button labeled {\bf Run}. You may
+briefly see the message {\tt Waiting for remote server...}, and then the
+output will appear below the code listing, as pictured. Note that the output
+does not include the quotation marks around ``Hello, World!''\ .
+
+We want invite you to try editing the hello world program, but we need words
+to describe parts of a program so we can talk about it. The next section
+covers some basic terms.
+
+
+\section{Program structure}
+\label{program structure}
+
+Go programs are made up of {\bf declarations}. In listing \ref{lst:hello.go}
+we have three declarations: {\tt package}, {\tt import}, and {\tt func}.
+
+We'll have a lot more to say about those declarations, but basically this is
+what they mean, starting with the most fundamental one, {\tt func}:
+
+\begin{description}
+
+\item[\textbf{\texttt{func}}:] This declares a {\bf function}, which is a
+sequence of lines of code that perform some computation or action. The only
+function in \ref{lst:hello.go} has the special name {\tt main}. When a Go
+program runs, it starts at the first line in the function named {\tt main} and
+ends when it executes the last line in it.
+
+\item[\textbf{\texttt{package}}:] All Go code is organized in {\bf packages},
+which consist of one or more text files. The package name {\tt main} is
+mandatory for stand-alone programs --- as opposed to {\bf library packages}
+that are not complete programs, but provide functions for other programs.
+
+\item[\textbf{\texttt{import}}:] This declaration tells Go which library
+packages are needed to build our program. Our {\tt main} function uses the
+{\tt fmt.Println} function, therefore we need to import {\tt fmt}. The {\tt
+fmt} package provides text formatting and output functions.
+
+\end{description}
+
+Programming in Go is writing functions inside packages. Very often, our
+functions will use functions from library packages that we import. In this
+book we'll mostly write stand-alone programs, but we'll use many libraries
+written by others.
+
+
+\section{Exercises}
+
+\begin{exercise}
+
+It is a good idea to read this book in front of a computer so you can try out
+the examples as you go.
+
+Whenever you are experimenting with a new feature, you should try to make
+mistakes. 
+
+This kind of experiment helps you remember what you read; it also
+helps when you are programming, because you get to know what the error
+messages mean. It is better to make mistakes now and on purpose than
+later and accidentally.
+\index{error message}
+
+Start with {\tt hello.go} and make the changes suggested here. To recover
+the original code, just visit that same URL:
+
+\url{https://tgo.li/2r8yCXj}
+
+After each change, hit the {\bf Run} button to see what happens.
+
+\begin{enumerate}
+
+\item What if there is no {\tt package} statement?
+
+\item What if the {\tt package} name is {\tt banana} instead of {\tt main}? 
+
+\item If you are trying to print a string, what happens if you
+leave out one of the quotation marks, or both?
+
+\item You can use a minus sign to make a negative number like
+{\tt -2}. What happens if you put a plus sign before a number?
+What about {\tt 2++2}?
+
+\item In math notation, leading zeros are ok, as in {\tt 02}.
+What happens if you try this in Python?
+
+\item What happens if you have two values with no operator
+between them?
+
+\end{enumerate}
+
+\end{exercise}
+
+
+\section{Anatomy of a function}
+\label{function!syntax}
+
+Let's take a closer look at the {\tt main} function from \ref{lst:hello.go}:
+
+\begin{lstlisting}
+func main() {
+	// display traditional greeting
+	fmt.Println("Hello, World!")
+}
+\end{lstlisting}
+
+\index{main}
+
+We try to give descriptive names to functions. The name {\tt main} is not very
+descriptive, but it is special as we just saw.
+
+\index{\{\} curly braces}
+\index{brackets!curly}
+
+Go uses curly braces (\{ and \}) to group things together. In {\tt main}, the
+braces contain the two lines that make up the body of the function. Those
+lines are indented from the left margin to make it clear that they are inside
+the function declaration.
+
+\index{comment!end-of-line}
+\index{statement!comment}
+
+The line that begins with two slashes {\tt //} is a {\bf comment}, which is a
+bit of English text that explains the code. When Go sees {\tt //}, it ignores
+everything from there until the end of the line. Comments have no effect on
+the execution of the program, but they make it easier for other programmers
+(and your future self) to understand what you meant to do.
+
+The second line in {\tt main} main is a {\bf statement}, a line of code that
+performs a basic action. A common way of performing actions is to call
+functions from library packages. So you write functions and your functions, in
+turn, call other functions. In the hello world program, this statement calls
+the {\tt fmt.Println} function to display a message on the screen:
+
+\begin{lstlisting}
+	fmt.Println("Hello, World!")
+\end{lstlisting}
+
+The name {\tt Println} stands for ``print line''. Confusingly, in programming,
+{\em print} can mean both ``display on the screen'' and ``send to the
+printer''. In this book, we'll try to say ``display'' when we mean output to
+the screen.
+
+\index{case-sensitive} Go is ``case-sensitive'', which means that uppercase
+and lowercase are not the same. In this example, {\tt Println} has to begin
+with an uppercase letter; {\tt println} and {\tt PRINTLN} won't work.
+
+
+
+There are a number of web pages you can use to run Python. If you
+already have a favorite, go ahead and use it. Otherwise I recommend
+PythonAnywhere. we provide detailed instructions for getting started
+at \url{http://tinyurl.com/thinkpython2e}. 
 \index{PythonAnywhere}
 
 There are two versions of Python, called Python 2 and Python 3.
 They are very similar, so if you learn one, it is easy to switch
-to the other.  In fact, there are only a few differences you will
+to the other. In fact, there are only a few differences you will
 encounter as a beginner.
-This book is written for Python 3, but I include some notes
+This book is written for Python 3, but we include some notes
 about Python 2.
 \index{Python 2}
 
 The Python {\bf interpreter} is a program that reads and executes
-Python code.  Depending on your environment, you might start the
+Python code. Depending on your environment, you might start the
 interpreter by clicking on an icon, or by typing {\tt python} on
 a command line. 
 When it starts, you should see output like this:
@@ -109,9 +286,9 @@ Type "help", "copyright", "credits" or "license" for more information.
 %
 The first three lines contain information about the interpreter
 and the operating system it's running on, so it might be different for
-you.  But you should check that the version number, which is
+you. But you should check that the version number, which is
 {\tt 3.4.0} in this example, begins with 3, which indicates that
-you are running Python 3.  If it begins with 2, you are running
+you are running Python 3. If it begins with 2, you are running
 (you guessed it) Python 2.
 
 The last line is a {\bf prompt} that indicates that the interpreter is
@@ -126,7 +303,7 @@ result:
 \end{verbatim}
 %
 Now you're ready to get started.
-From here on, I assume that you know how to start the Python
+From here on, we assume that you know how to start the Python
 interpreter and run code.
 
 
@@ -136,15 +313,15 @@ interpreter and run code.
 
 Traditionally, the first program you write in a new language
 is called ``Hello, World!'' because all it does is display the
-words ``Hello, World!''.  In Python, it looks like this:
+words ``Hello, World!''. In Python, it looks like this:
 
 \begin{verbatim}
 >>> print('Hello, World!')
 \end{verbatim}
 %
 This is an example of a {\bf print statement}, although it
-doesn't actually print anything on paper.  It displays a result on the
-screen.  In this case, the result is the words
+doesn't actually print anything on paper. It displays a result on the
+screen. In this case, the result is the words
 
 \begin{verbatim}
 Hello, World!
@@ -156,7 +333,7 @@ of the text to be displayed; they don't appear in the result.
 \index{print statement}
 \index{statement!print}
 
-The parentheses indicate that {\tt print} is a function.  We'll get
+The parentheses indicate that {\tt print} is a function. We'll get
 to functions in Chapter~\ref{funcchap}.
 \index{function} \index{print function}
 
@@ -176,9 +353,9 @@ get started.
 \index{operator!arithmetic}
 \index{arithmetic operator}
 
-After ``Hello, World'', the next step is arithmetic.  Python provides
+After ``Hello, World'', the next step is arithmetic. Python provides
 {\bf operators}, which are special symbols that represent computations
-like addition and multiplication.  
+like addition and multiplication. 
 
 The operators {\tt +}, {\tt -}, and {\tt *} perform addition,
 subtraction, and multiplication, as in the following examples:
@@ -200,7 +377,7 @@ The operator {\tt /} performs division:
 \end{verbatim}
 %
 You might wonder why the result is {\tt 42.0} instead of {\tt 42}.
-I'll explain in the next section.
+we'll explain in the next section.
 
 Finally, the operator {\tt **} performs exponentiation; that is,
 it raises a number to a power:
@@ -211,7 +388,7 @@ it raises a number to a power:
 \end{verbatim}
 %
 In some other languages, \verb"^" is used for exponentiation, but
-in Python it is a bitwise operator called XOR.  If you are not
+in Python it is a bitwise operator called XOR. If you are not
 familiar with bitwise operators, the result will surprise you:
 
 \begin{verbatim}
@@ -219,7 +396,7 @@ familiar with bitwise operators, the result will surprise you:
 4
 \end{verbatim}
 %
-I won't cover
+we won't cover
 bitwise operators in this book, but you can read about
 them at \url{http://wiki.python.org/moin/BitwiseOperators}.
 \index{bitwise operator}
@@ -232,7 +409,7 @@ them at \url{http://wiki.python.org/moin/BitwiseOperators}.
 \index{string}
 
 A {\bf value} is one of the basic things a program works with, like a
-letter or a number.  Some values we have seen so far are {\tt 2},
+letter or a number. Some values we have seen so far are {\tt 2},
 {\tt 42.0}, and \verb"'Hello, World!'".
 
 These values belong to different {\bf types}:
@@ -260,7 +437,7 @@ a category; a type is a category of values.
 
 Not surprisingly, integers belong to the type {\tt int},
 strings belong to {\tt str} and floating-point
-numbers belong to {\tt float}.  
+numbers belong to {\tt float}. 
 \index{type}
 \index{string type}
 \index{type!str}
@@ -284,7 +461,7 @@ strings.
 They're strings.
 
 When you type a large integer, you might be tempted to use commas
-between groups of digits, as in {\tt 1,000,000}.  This is not a
+between groups of digits, as in {\tt 1,000,000}. This is not a
 legal {\em integer} in Python, but it is legal:
 
 \begin{verbatim}
@@ -293,7 +470,7 @@ legal {\em integer} in Python, but it is legal:
 \end{verbatim}
 %
 That's not what we expected at all!  Python interprets {\tt
-  1,000,000} as a comma-separated sequence of integers.  We'll learn
+  1,000,000} as a comma-separated sequence of integers. We'll learn
 more about this kind of sequence later.
 \index{sequence}
 
@@ -314,15 +491,15 @@ more about this kind of sequence later.
 \index{language!natural}
 
 {\bf Natural languages} are the languages people speak,
-such as English, Spanish, and French.  They were not designed
+such as English, Spanish, and French. They were not designed
 by people (although people try to impose some order on them);
 they evolved naturally.
 
 {\bf Formal languages} are languages that are designed by people for
-specific applications.  For example, the notation that mathematicians
+specific applications. For example, the notation that mathematicians
 use is a formal language that is particularly good at denoting
-relationships among numbers and symbols.  Chemists use a formal
-language to represent the chemical structure of molecules.  And
+relationships among numbers and symbols. Chemists use a formal
+language to represent the chemical structure of molecules. And
 most importantly:
 
 \begin{quote}
@@ -334,32 +511,32 @@ Formal languages tend to have strict {\bf syntax} rules that
 govern the structure of statements.
 For example, in mathematics the statement
 $3 + 3 = 6$ has correct syntax, but
-$3 + = 3 \$ 6$ does not.  In chemistry
+$3 + = 3 \$ 6$ does not. In chemistry
 $H_2O$ is a syntactically correct formula, but $_2Zz$ is not.
 \index{syntax}
 
 Syntax rules come in two flavors, pertaining to {\bf tokens} and
-structure.  Tokens are the basic elements of the language, such as
-words, numbers, and chemical elements.  One of the problems with
+structure. Tokens are the basic elements of the language, such as
+words, numbers, and chemical elements. One of the problems with
 $3 += 3 \$ 6$ is that \( \$ \) is not a legal token in mathematics
-(at least as far as I know).  Similarly, $_2Zz$ is not legal because
+(at least as far as we know). Similarly, $_2Zz$ is not legal because
 there is no element with the abbreviation $Zz$.
 \index{token}
 \index{structure}
 
 The second type of syntax rule pertains to the way tokens are
-combined.  The equation $3 += 3$ is illegal because even though $+$
+combined. The equation $3 += 3$ is illegal because even though $+$
 and $=$ are legal tokens, you can't have one right after the other.
 Similarly, in a chemical formula the subscript comes after the element
 name, not before.
 
 This is @ well-structured Engli\$h
-sentence with invalid t*kens in it.  This sentence all valid tokens
+sentence with invalid t*kens in it. This sentence all valid tokens
 has, but invalid structure with.
 
 When you read a sentence in English or a statement in a formal
 language, you have to figure out the structure
-(although in a natural language you do this subconsciously).  This
+(although in a natural language you do this subconsciously). This
 process is called {\bf parsing}.
 \index{parse}
 
@@ -380,19 +557,19 @@ regardless of context.
 
 \item[redundancy:] In order to make up for ambiguity and reduce
 misunderstandings, natural languages employ lots of
-redundancy.  As a result, they are often verbose.  Formal languages
+redundancy. As a result, they are often verbose. Formal languages
 are less redundant and more concise.
 
 \item[literalness:] Natural languages are full of idiom and metaphor.
-If I say, ``The penny dropped'', there is probably no penny and
+If we say, ``The penny dropped'', there is probably no penny and
 nothing dropping (this idiom means that someone understood something
-after a period of confusion).  Formal languages
+after a period of confusion). Formal languages
 mean exactly what they say.
 
 \end{description}
 
 Because we all grow up speaking natural languages, it is sometimes
-hard to adjust to formal languages.  The difference between formal and
+hard to adjust to formal languages. The difference between formal and
 natural language is like the difference between poetry and prose, but
 more so: \index{poetry} \index{prose}
 
@@ -400,11 +577,11 @@ more so: \index{poetry} \index{prose}
 
 \item[Poetry:] Words are used for their sounds as well as for
 their meaning, and the whole poem together creates an effect or
-emotional response.  Ambiguity is not only common but often
+emotional response. Ambiguity is not only common but often
 deliberate.
 
 \item[Prose:] The literal meaning of words is more important,
-and the structure contributes more meaning.  Prose is more amenable to
+and the structure contributes more meaning. Prose is more amenable to
 analysis than poetry but still often ambiguous.
 
 \item[Programs:] The meaning of a computer program is unambiguous
@@ -414,11 +591,11 @@ tokens and structure.
 \end{description}
 
 Formal languages are more dense
-than natural languages, so it takes longer to read them.  Also, the
+than natural languages, so it takes longer to read them. Also, the
 structure is important, so it is not always best to read
-from top to bottom, left to right.  Instead, learn to parse the
+from top to bottom, left to right. Instead, learn to parse the
 program in your head, identifying the tokens and interpreting the
-structure.  Finally, the details matter.  Small errors in
+structure. Finally, the details matter. Small errors in
 spelling and punctuation, which you can get away
 with in natural languages, can make a big difference in a formal
 language.
@@ -427,18 +604,18 @@ language.
 \section{Debugging}
 \index{debugging}
 
-Programmers make mistakes.  For whimsical reasons, programming errors
+Programmers make mistakes. For whimsical reasons, programming errors
 are called {\bf bugs} and the process of tracking them down is called
 {\bf debugging}.
 \index{debugging}
 \index{bug}
 
 Programming, and especially debugging, sometimes brings out strong
-emotions.  If you are struggling with a difficult bug, you might 
+emotions. If you are struggling with a difficult bug, you might 
 feel angry, despondent, or embarrassed.
 
 There is evidence that people naturally respond to computers as if
-they were people.  When they work well, we think
+they were people. When they work well, we think
 of them as teammates, and when they are obstinate or rude, we
 respond to them the same way we respond to rude,
 obstinate people (Reeves and Nass, {\it The Media
@@ -454,15 +631,15 @@ particular weaknesses, like lack of empathy and inability
 to grasp the big picture.
 
 Your job is to be a good manager: find ways to take advantage
-of the strengths and mitigate the weaknesses.  And find ways
+of the strengths and mitigate the weaknesses. And find ways
 to use your emotions to engage with the problem,
 without letting your reactions interfere with your ability
 to work effectively.
 
 Learning to debug can be frustrating, but it is a valuable skill
-that is useful for many activities beyond programming.  At the
+that is useful for many activities beyond programming. At the
 end of each chapter there is a section, like this one,
-with my suggestions for debugging.  I hope they help!
+with my suggestions for debugging. we hope they help!
 
 
 \section{Glossary}
@@ -472,6 +649,10 @@ with my suggestions for debugging.  I hope they help!
 \item[problem solving:]  The process of formulating a problem, finding
 a solution, and expressing it.
 \index{problem solving}
+
+\item[declaration:] One of the main parts of a Go source code file, such
+as {\tt import}
+\index{declaration}
 
 \item[high-level language:]  A programming language like Python that
 is designed to be easy for humans to read and write.
@@ -510,7 +691,7 @@ addition, multiplication, or string concatenation.
 that a program manipulates.
 \index{value}
 
-\item[type:] A category of values.  The types we have seen so far
+\item[type:] A category of values. The types we have seen so far
 are integers (type {\tt int}), floating-point numbers (type {\tt
 float}), and strings (type {\tt str}).
 \index{type}
@@ -561,14 +742,14 @@ It is a good idea to read this book in front of a computer so you can
 try out the examples as you go.
 
 Whenever you are experimenting with a new feature, you should try
-to make mistakes.  For example, in the ``Hello, world!'' program,
+to make mistakes. For example, in the ``Hello, world!'' program,
 what happens if you leave out one of the quotation marks?  What
 if you leave out both?  What if you spell {\tt print} wrong?
 \index{error message}
 
 This kind of experiment helps you remember what you read; it also
 helps when you are programming, because you get to know what the error
-messages mean.  It is better to make mistakes now and on purpose than
+messages mean. It is better to make mistakes now and on purpose than
 later and accidentally.
 
 \begin{enumerate}
@@ -580,7 +761,7 @@ of the parentheses, or both?
 leave out one of the quotation marks, or both?
 
 \item You can use a minus sign to make a negative number like
-{\tt -2}.  What happens if you put a plus sign before a number?
+{\tt -2}. What happens if you put a plus sign before a number?
 What about {\tt 2++2}?
 
 \item In math notation, leading zeros are ok, as in {\tt 02}.
