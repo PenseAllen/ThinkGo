@@ -5,3 +5,6 @@ book.ind
 book.log
 book.out
 book.toc
+
+# symlink to ../code to simplify code listing captions
+code
