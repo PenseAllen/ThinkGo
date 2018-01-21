@@ -59,17 +59,32 @@
 \usepackage{color}
 \usepackage{inconsolata}
 
-\definecolor{myred}{rgb}{0.5,0,0}
-\definecolor{mygreen}{rgb}{0,0.5,0}
-\definecolor{myblue}{rgb}{0,0,0.5}
+
+% morekeywords=[1]{%keywords: break,case,chan,const,continue,default...
+\definecolor{keywordcolor}{rgb}{0,0,0.4}   % blue
+
+% morekeywords=[2]{%built-in func: append,cap,close,complex,copy,delete...
+\definecolor{bifcolor}{rgb}{0,0,0.8}     % dark blue
+
+% morekeywords=[3]{%built-in types: bool,byte,complex64,error,float32...
+\definecolor{typecolor}{rgb}{0,0,0.8}    % dark blue
+
+% morekeywords=[4]{%predeclared: true,false,iota,nil
+\definecolor{constcolor}{rgb}{0.5,0,0.5}    % dark purple
+
+\definecolor{commentcolor}{rgb}{0.4,0.4,0.4}  % gray
+
+\definecolor{stringcolor}{rgb}{0,0.5,0}  % dark green
 
 \lstset{ % add your own preferences
   tabsize=2,
   basicstyle=\small\ttfamily,
-  keywordstyle=\color{blue}\textbf,
-  keywordstyle=[2]{\color{myblue}},
-  commentstyle=\color{mygreen},
-  stringstyle=\color{myred},
+  keywordstyle=\color{keywordcolor}\textbf,
+  keywordstyle=[2]{\color{bifcolor}\textbf},
+  keywordstyle=[3]{\color{typecolor}},
+  keywordstyle=[4]{\color{constcolor}\textbf},
+  commentstyle=\color{commentcolor},
+  stringstyle=\color{stringcolor},
   showstringspaces=false, 
   caption=\lstname,
   captionpos=t, 

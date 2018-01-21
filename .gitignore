@@ -8,6 +8,7 @@ thinkgo.toc
 
 # Editor files
 .~lock*
+*.sublime-*
 
 # Binaries for programs and plugins
 *.exe

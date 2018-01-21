@@ -132,26 +132,24 @@ what they mean, starting with the most fundamental one, {\tt func}:
 
 \item[\textbf{\texttt{func}}:] This declares a {\bf function}, which is a
 sequence of lines of code that perform some computation or action. The only
-function in \ref{lst:hello.go} has the special name {\tt main}. When a Go
-program runs, it starts at the first line in the function named {\tt main} and
-ends when it executes the last line in it.
+function in \ref{lst:hello.go} is named {\tt main}.
 
 \item[\textbf{\texttt{package}}:] All Go code is organized in {\bf packages},
-which consist of one or more text files. The package name {\tt main} is
+which consist of one or more {\tt .go} files. The package name {\tt main} is
 mandatory for stand-alone programs --- as opposed to {\bf library packages}
 that are not complete programs, but provide functions for other programs.
 
 \item[\textbf{\texttt{import}}:] This declaration tells Go which library
 packages are needed to build our program. Our {\tt main} function uses the
-{\tt fmt.Println} function, therefore we need to import {\tt fmt}. The {\tt
-fmt} package provides text formatting and output functions.
+{\tt fmt.Println} function, therefore we need to import {\tt fmt}. The
+{\tt fmt} package provides text formatting and output functions.
 
 \end{description}
 
-Programming in Go is writing functions inside packages. Very often, our
-functions will use functions from library packages that we import. In this
-book we'll mostly write stand-alone programs, but we'll use many libraries
-written by others.
+Programming in Go is writing functions in {\tt .go} files that belong
+packages. Usually our functions will use functions from library packages
+that we import. In this book we'll mostly write stand-alone programs, but
+we'll use many libraries written by others.
 
 
 \section{Exercises}
@@ -159,7 +157,8 @@ written by others.
 \begin{exercise}
 
 It is a good idea to read this book in front of a computer so you can try out
-the examples as you go.
+the examples as you go. In this exercise, we'll use the {\it Go Playground}
+to learn about the structure of the {\tt hello.go} program.
 
 Whenever you are experimenting with a new feature, you should try to make
 mistakes. 
@@ -183,11 +182,13 @@ After each change, hit the {\bf Run} button to see what happens.
 
 \item What if the {\tt package} name is {\tt banana} instead of {\tt main}? 
 
-\item What happens when there is no {\tt import} declaration?
-
 \item Restore the program to its original state. Then remove all blank lines
 and the whitespace to the left of {\tt fmt.Println("Hello, World!")}. Does the
 program still run? What happens when you click the {\bf Format} button?
+
+\item What happens when there is no {\tt import} declaration? After trying 
+to run the program without the {\tt import} line, check the box labeled
+{\bf Imports}, then click {\bf Format} and note what happens.
 
 \item There is only one line with text in {\tt hello.go} that you can delete
 without changing the behavior of the program. Can you discover which one?
@@ -262,6 +263,42 @@ the screen.
 \index{case-sensitive} Go is ``case-sensitive'', which means that uppercase
 and lowercase are not the same. In this example, {\tt Println} has to begin
 with an uppercase letter; {\tt println} and {\tt PRINTLN} won't work.
+
+\section{Exercises}
+
+\begin{exercise}
+
+Once agai, start with {\tt hello.go} in the {\it Go Playground} and make the
+changes suggested here. To recover the original code, just visit that same
+URL:
+
+\url{https://tgo.li/2r8yCXj}
+
+After each change, hit the {\bf Run} button to see what happens.
+
+\begin{enumerate}
+
+\item What happens when there is no {\tt package} declaration?
+
+\item What if the {\tt package} name is {\tt banana} instead of {\tt main}? 
+
+\item Restore the program to its original state. Then remove all blank lines
+and the whitespace to the left of {\tt fmt.Println("Hello, World!")}. Does the
+program still run? What happens when you click the {\bf Format} button?
+
+\item What happens when there is no {\tt import} declaration? After trying 
+to run the program without the {\tt import} line, check the box labeled
+{\bf Imports}, then click {\bf Format} and note what happens.
+
+\item There is only one line with text in {\tt hello.go} that you can delete
+without changing the behavior of the program. Can you discover which one?
+Can you guess its purpose, since it does not affect the program?
+
+
+\end{enumerate}
+
+\end{exercise}
+
 
 
 \section{Formal and natural languages}
@@ -412,10 +449,10 @@ a solution, and expressing it.
 \index{problem solving}
 
 \item[declaration:] One of the main parts of a Go source code file, such
-as {\tt import}
+as {\tt import} or {\tt func} 
 \index{declaration}
 
-\item[high-level language:]  A programming language like Python that
+\item[high-level language:]  A programming language like Go that
 is designed to be easy for humans to read and write.
 \index{high-level language}
 
