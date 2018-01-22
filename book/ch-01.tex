@@ -214,20 +214,20 @@ func main() {
 
 \index{main}
 
-The {\tt func} keyword is followed by the function name. We try to give
-descriptive names to functions. The name {\tt main} is not very descriptive,
-but it is special. A program can have many functions, but the function called
-{\tt main} is where the execution starts and ends. Everything else that
-happens when the program runs depends on what {\tt main} does.
+The {\tt func} keyword is followed by the function name. A program can have
+many functions, so we try to give descriptive names to them. The name {\tt
+main} is not very descriptive, but is special: the execution of a Go program
+begins and ends in the function called {\tt main}. Everything else that
+happens when the program runs depends on actions started by {\tt main}.
 
 \index{\{\} curly braces}
 \index{brackets!curly}
 
-Every function has a body: a sequence of lines delimited by curly braces (\{
-and \}). The content of the body is indented from the left margin to make it
-clear where it starts and ends. In Go, the opening brace is always at the
-first line of a declaration that has a body. For example, this is
-wrong:
+Every function has a body: a sequence of lines delimited by curly braces
+({\tt\{} and {\tt\}}). The content of the body is indented from the left
+margin to make it clear where it starts and ends. In Go, the opening brace is
+always at the first line of a declaration that has a body. For example, this
+is wrong:
 
 \begin{lstlisting}
 func main()
@@ -240,16 +240,17 @@ func main()
 \index{comment!end-of-line}
 \index{statement!comment}
 
-Any line that begins with two slashes {\tt //} is a {\bf comment}: is a bit of
-English text that explains the code. When Go sees {\tt //}, it ignores
-everything from there until the end of the line. Comments have no effect on
-the execution of the program, but they make it easier for other programmers
-(and your future self) to understand what you meant to do.
+Any line that begins with two slashes {\tt //} is a {\bf comment}: English
+text that explains the code. When Go sees {\tt //}, it ignores everything from
+there until the end of the line. Comments have no effect on the execution of
+the program, but they make it easier for other programmers (and your future
+self) to understand what you meant to do.
 
-The second line in {\tt main} main is a {\bf statement}, a line of code that
-performs a basic action. A common way of performing actions is to call
-functions from library packages. In the hello world program, this statement
-calls the {\tt fmt.Println} function to display a message on the screen:
+The second line in the body of {\tt main} main is a {\bf statement}, a line of
+code that performs a basic action. A common way of performing actions is to
+call functions from library packages. In the hello world program, this
+statement calls the {\tt fmt.Println} function to display a message on the
+screen:
 
 \begin{lstlisting}
 	fmt.Println("Hello, World!")
@@ -260,7 +261,8 @@ The name {\tt Println} stands for ``print line''. Confusingly, in programming,
 printer''. In this book, we'll try to say ``display'' when we mean output to
 the screen.
 
-\index{case-sensitive} Go is ``case-sensitive'', which means that uppercase
+\index{case-sensitive}
+Go is ``case-sensitive'', which means that uppercase
 and lowercase are not the same. In this example, {\tt Println} has to begin
 with an uppercase letter; {\tt println} and {\tt PRINTLN} won't work.
 
@@ -268,31 +270,25 @@ with an uppercase letter; {\tt println} and {\tt PRINTLN} won't work.
 
 \begin{exercise}
 
-Once agai, start with {\tt hello.go} in the {\it Go Playground} and make the
+Once again, start with {\tt hello.go} in the {\it Go Playground} and make the
 changes suggested here. To recover the original code, just visit that same
 URL:
 
 \url{https://tgo.li/2r8yCXj}
 
-After each change, hit the {\bf Run} button to see what happens.
+After each change, hit the {\bf Run} button to see what happens. Pay attention
+to the error messages.
 
 \begin{enumerate}
 
-\item What happens when there is no {\tt package} declaration?
+\item Change the text of the function call {\tt fmt.Println("Hello, World!")}
+to make it invalid by removing parenthesis.
 
-\item What if the {\tt package} name is {\tt banana} instead of {\tt main}? 
+\item If you are trying to print a string, what happens if you leave out one
+of the quotation marks, or both?
 
-\item Restore the program to its original state. Then remove all blank lines
-and the whitespace to the left of {\tt fmt.Println("Hello, World!")}. Does the
-program still run? What happens when you click the {\bf Format} button?
-
-\item What happens when there is no {\tt import} declaration? After trying 
-to run the program without the {\tt import} line, check the box labeled
-{\bf Imports}, then click {\bf Format} and note what happens.
-
-\item There is only one line with text in {\tt hello.go} that you can delete
-without changing the behavior of the program. Can you discover which one?
-Can you guess its purpose, since it does not affect the program?
+\item Add another call to {\tt fmt.Println("")} below the first one, putting
+your own text between the quotes.
 
 
 \end{enumerate}
@@ -401,6 +397,110 @@ head, identifying the tokens and interpreting the structure. Finally, the
 details matter. Small errors in spelling and punctuation, which you can get
 away with in natural languages, can make a big difference in a formal
 language.
+
+
+\section{Running Go programs on your machine}
+
+The {\it Go Playground} imposes several limitations for security and cost
+reasons. For example, the program in listing \ref{lst:now.go} should tell
+you the current time, but it will always claim it is 11 PM, November 10,
+2009---the date when Go was announced to the public. 
+
+\index{now.go}
+\lstinputlisting[language=Golang,label=lst:now.go]{01/now/now.go}
+
+The playground also automates and hides important concepts and actions, which
+this section reveals.
+
+
+\index{machine language}
+\index{compile}
+\index{source code}
+\index{object code}
+\index{executable}
+
+Before they can run, programs written in Go must be translated into ``machine
+language'', the low-level instructions that the computer can follow. This
+translation is done by the Go {\bf compiler}, one of the software tools that
+comes with the Go distribution.
+
+The compiler reads {\tt .go} text files---the {\bf source code}---and produces
+binary files that are executable. In this book we'll use two command-line Go
+tools to run our programs:
+
+\begin{description}
+
+\item[\textbf{\texttt{go build}}:] This command reads the {\tt .go} files in
+the current directory. If a {\tt package main} is found, the files are compiled
+to produce an executable. You then use the OS shell to run the executable.
+
+\item[\textbf{\texttt{go run }}{\tt myprogram.go}:] If the file {\tt myprogram.go}
+declares a {\tt package main}, it is compiled to a temporary directory and
+immediately executed.
+
+\end{description}
+
+The {\tt go build} command requires an extra step to run the program, but on
+the other hand it gives you a stand-alone executable that does not depend
+on having the Go tools installed, so it can easily be distributed.
+
+\subsection{Using \tt{go run}}
+
+
+\subsection{Using \tt{go build}}
+
+
+When we run {\tt go build}  with the same name as the current directory
+(an {\tt .exe} extension is added if you are on Windows)
+
+
+Once a program is compiled, you can execute it repeatedly without further translation.
+As a result, compiled programs often run faster than interpreted programs.
+
+Figure~\ref{fig.compiler} shows the steps of the development process.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics{figs/compiler.png}
+\caption{The process of compiling and running a Go program.}
+\label{fig.compiler}
+\end{center}
+\end{figure}
+
+The Go playground (shown in Figure~\ref{fig.playhello}) lets us use a Go compiler running on a Google server machine.
+When you hit the {\bf Run} button, the playground Go compiler produces an executable and saves it in the server (if there are no errors).
+The server then runs the executable, and sends its output back to your browser.
+The executable is then discarded, so the Go playground is useful only for quick experiments.
+
+To compile Go programs locally, we need to install the Go distribution, as explained in Appendix XXX. After Go is installed, you can use the {\tt go build} in the terminal.
+
+% LR: 2018-01-10: chose a tone: "you" or "the programmer" (see surrounding paragraphs)
+
+The programmer writes source code in the file {\tt hello.go} and uses {\tt go build} to compile it.
+If there are no errors, the compiler saves the executable in the file {\tt hello} (or {\tt hello.exe}, in Windows).
+To run the program, the user simply invokes it in the terminal.
+The output of the program is then displayed on the screen.
+
+This is how running {\tt hello.go} looks like on the {\tt bash} shell installed by default on GNU/Linux and Mac OS X machines:
+
+\begin{verbatim}
+$ ./hello 
+Hello, World!
+\end{verbatim}
+
+On the Windows command prompt, it's very similar:
+
+\begin{verbatim}
+> hello.exe 
+Hello, World!
+\end{verbatim}
+
+
+Although it might seem complicated, these steps are automated for you in most program development environments.
+Usually you only have to press a button or type a single command to compile and run your program.
+On the other hand, it is important to know what steps are happening in the background,
+so if something goes wrong you can figure out what it is.
+
 
 
 \section{Debugging}
