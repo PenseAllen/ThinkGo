@@ -1,0 +1,564 @@
+[[the-way-of-the-program]]
+The way of the program
+----------------------
+
+The goal of this book is to teach you to think like a computer
+scientist. This way of thinking combines some of the best features of
+mathematics, engineering, and natural science. Like mathematicians,
+computer scientists use formal languages to denote ideas (specifically
+computations). Like engineers, they design things, assembling components
+into systems and evaluating tradeoffs among alternatives. Like
+scientists, they observe the behavior of complex systems, form
+hypotheses, and test predictions.
+
+The single most important skill for a computer scientist is *problem
+solving*. Problem solving means the ability to formulate problems, think
+creatively about solutions, and express a solution clearly and
+accurately. As it turns out, the process of learning to program is an
+excellent opportunity to practice problem-solving skills. That’s why
+this chapter is called, ``The way of the program''.
+
+On one level, you will be learning to program, a useful skill by itself.
+On another level, you will use programming as a means to an end. As we
+go along, that end will become clearer.
+
+[[what-is-a-program]]
+What is a program?
+~~~~~~~~~~~~~~~~~~
+
+A *program* is a sequence of instructions that specifies how to perform
+a computation. The computation might be something mathematical, such as
+solving a system of equations or finding the roots of a polynomial, but
+it can also be a symbolic computation, such as searching and replacing
+text in a document or something graphical, like processing an image or
+playing a video.
+
+The details look different in different languages, but a few basic
+instructions appear in just about every language:
+
+input:::
+  Get data from the keyboard, a file, the network, a camera, or some
+  other device like a fingerprint reader.
+output:::
+  Display data on the screen, save it in a file, send it over the
+  network, or control a device such as a door lock.
+math:::
+  Perform basic mathematical operations like addition and
+  multiplication.
+decisions:::
+  Check for certain conditions to determine whether to perform some
+  action. For example: if the fingerprint matches, unlock the door.
+repetition:::
+  Perform some action repeatedly, usually with some variation.
+
+Believe it or not, that’s pretty much all there is to it. Every program
+you’ve ever used, no matter how complicated, is made up of instructions
+that look pretty much like these. So you can think of programming as the
+process of breaking a large, complex task into smaller and smaller
+subtasks until the subtasks are simple enough to be performed with one
+of these basic instructions.
+
+[[running-go]]
+Running Go
+~~~~~~~~~~
+
+One of the challenges of getting started with Go is that you might have
+to install Go and related software on your computer. If you are familiar
+with your operating system, and especially if you are comfortable with
+the command- line interface, you will have no trouble installing Go. But
+for beginners, it can be distracting to learn about system
+administration and programming at the same time.
+
+To avoid that problem, we recommend that you start out using the _Go
+Playground_:
+
+https://play.golang.org/
+
+The _Go Playground_ lets you type or paste Go code and click a button to
+run it, without installing anything. It is limited in many ways, but
+good enough to get started. After you’ve taken the first steps, we’ll
+provide instructions for installing Go on your computer.footnote:[If you
+can’t wait to install Go, Appendix A explains how.]
+
+[[hello]]
+The hello world program
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Traditionally, the first program you write when learning a new
+programming language is called the hello world program. All it does is
+display the words ``Hello, World!'' on the screen. In Go, it looks like
+this:
+
+lstinputlisting[language=Golang,label=lst:hello.go]01/hello/hello.go
+
+We typed listing [lst:hello.go] and saved it in the playground. Follow
+this link to see it:
+
+https://tgo.li/2r8yCXj
+
+If you open that address in a browser, you’ll see a page similar to
+Figure [fig:playhello].
+
+image:figs/play-hello.png[The hello world program in the Go playground
+(after running).,scaledwidth=100.0%]
+
+To execute the program, click the blue button labeled *Run*. You may
+briefly see the message Waiting for remote server..., and then the
+output will appear below the code listing, as pictured. Note that the
+output does not include the quotation marks around ``Hello, World!'' .
+
+We want invite you to try editing the hello world program, but we need
+words to describe parts of a program so we can talk about it. The next
+section covers some basic terms.
+
+[[program-structure]]
+Program structure
+~~~~~~~~~~~~~~~~~
+
+Go programs are made up of *declarations*. In listing [lst:hello.go] we
+have three declarations: package, import, and func.
+
+We’ll have a lot more to say about those declarations, but basically
+this is what they mean, starting with the most fundamental one, func:
+
+**`func`**:::
+  This declares a *function*, which is a sequence of lines of code that
+  perform some computation or action. The only function in
+  [lst:hello.go] is named main.
+**`package`**:::
+  All Go code is organized in *packages*, which consist of one or more
+  .go files. The package name main is mandatory for stand-alone programs
+  — as opposed to *library packages* that are not complete programs, but
+  provide functions for other programs.
+**`import`**:::
+  This declaration tells Go which library packages are needed to build
+  our program. Our main function uses the fmt.Println function,
+  therefore we need to import fmt. The fmt package provides text
+  formatting and output functions.
+
+Programming in Go is writing functions in .go files that belong
+packages. Usually our functions will use functions from library packages
+that we import. In this book we’ll mostly write stand-alone programs,
+but we’ll use many libraries written by others.
+
+[[exercises]]
+Exercises
+~~~~~~~~~
+
+It is a good idea to read this book in front of a computer so you can
+try out the examples as you go. In this exercise, we’ll use the _Go
+Playground_ to learn about the structure of the hello.go program.
+
+Whenever you are experimenting with a new feature, you should try to
+make mistakes.
+
+This kind of experiment helps you remember what you read; it also helps
+when you are programming, because you get to know what the error
+messages mean. It is better to make mistakes now and on purpose than
+later and accidentally.
+
+Start with hello.go in the _Go Playground_ and make the changes
+suggested here. To recover the original code, just visit that same URL:
+
+https://tgo.li/2r8yCXj
+
+After each change, hit the *Run* button to see what happens.
+
+1.  What happens when there is no package declaration?
+2.  What if the package name is banana instead of main?
+3.  Restore the program to its original state. Then remove all blank
+lines and the whitespace to the left of fmt.Println(``Hello, World!'').
+Does the program still run? What happens when you click the *Format*
+button?
+4.  What happens when there is no import declaration? After trying to
+run the program without the import line, check the box labeled
+*Imports*, then click *Format* and note what happens.
+5.  There is only one line with text in hello.go that you can delete
+without changing the behavior of the program. Can you discover which
+one? Can you guess its purpose, since it does not affect the program?
+
+[[function-syntax]]
+Anatomy of a function
+~~~~~~~~~~~~~~~~~~~~~
+
+Let’s take a closer look at the main function from [lst:hello.go]:
+
+....
+func main() {
+    // display traditional greeting
+    fmt.Println("Hello, World!")
+}
+....
+
+The func keyword is followed by the function name. A program can have
+many functions, so we try to give descriptive names to them. The name
+main is not very descriptive, but is special: the execution of a Go
+program begins and ends in the function called main. Everything else
+that happens when the program runs depends on actions started by main.
+
+Every function has a body: a sequence of lines delimited by curly braces
+(\{ and }). The content of the body is indented from the left margin to
+make it clear where it starts and ends. In Go, the opening brace is
+always at the first line of a declaration that has a body. For example,
+this is wrong:
+
+....
+func main()
+{
+    // WRONG: the { should be in the top line of the declaration
+    fmt.Println("Hello, World!")
+}
+....
+
+Any line that begins with two slashes // is a *comment*: English text
+that explains the code. When Go sees //, it ignores everything from
+there until the end of the line. Comments have no effect on the
+execution of the program, but they make it easier for other programmers
+(and your future self) to understand what you meant to do.
+
+The second line in the body of main main is a *statement*, a line of
+code that performs a basic action. A common way of performing actions is
+to call functions from library packages. In the hello world program,
+this statement calls the fmt.Println function to display a message on
+the screen:
+
+....
+    fmt.Println("Hello, World!")
+....
+
+The name Println stands for ``print line''. Confusingly, in programming,
+_print_ can mean both ``display on the screen'' and ``send to the
+printer''. In this book, we’ll try to say ``display'' when we mean
+output to the screen.
+
+Go is ``case-sensitive'', which means that uppercase and lowercase are
+not the same. In this example, Println has to begin with an uppercase
+letter; println and PRINTLN won’t work.
+
+[[exercises-1]]
+Exercises
+~~~~~~~~~
+
+Once again, start with hello.go in the _Go Playground_ and make the
+changes suggested here. To recover the original code, just visit that
+same URL:
+
+https://tgo.li/2r8yCXj
+
+After each change, hit the *Run* button to see what happens. Pay
+attention to the error messages.
+
+1.  Change the text of the function call fmt.Println(``Hello, World!'')
+to make it invalid by removing parenthesis.
+2.  If you are trying to print a string, what happens if you leave out
+one of the quotation marks, or both?
+3.  Add another call to fmt.Println(``'') below the first one, putting
+your own text between the quotes.
+
+[[formal-and-natural-languages]]
+Formal and natural languages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Natural languages* are the languages people speak, such as English,
+Spanish, and French. They were not designed by people (although people
+try to impose some order on them); they evolved naturally.
+
+*Formal languages* are languages that are designed by people for
+specific applications. For example, the notation that mathematicians use
+is a formal language that is particularly good at denoting relationships
+among numbers and symbols. Chemists use a formal language to represent
+the chemical structure of molecules. And most importantly:
+
+_____________________________________________________________________________________________
+*Programming languages are formal languages that have been designed to
+express computations.*
+_____________________________________________________________________________________________
+
+Formal languages tend to have strict *syntax* rules that govern the
+structure of statements. For example, in mathematics the statement
+latexmath:[$3 + 3 = 6$] has correct syntax, but
+latexmath:[$3 + = 3 \$ 6$] does not. In chemistry latexmath:[$H_2O$] is
+a syntactically correct formula, but latexmath:[$_2Zz$] is not.
+
+Syntax rules come in two flavors, pertaining to *tokens* and structure.
+Tokens are the basic elements of the language, such as words, numbers,
+and chemical elements. One of the problems with
+latexmath:[$3 += 3 \$ 6$] is that latexmath:[$ \$ $] is not a legal
+token in mathematics (at least as far as we know). Similarly,
+latexmath:[$_2Zz$] is not legal because there is no element with the
+abbreviation latexmath:[$Zz$].
+
+The second type of syntax rule pertains to the way tokens are combined.
+The equation latexmath:[$3 += 3$] is illegal because even though
+latexmath:[$+$] and latexmath:[$=$] are legal tokens, you can’t have one
+right after the other. Similarly, in a chemical formula the subscript
+comes after the element name, not before.
+
+This is @ well-structured Engli$h sentence with invalid t*kens in it.
+This sentence all valid tokens has, but invalid structure with.
+
+When you read a sentence in English or a statement in a formal language,
+you have to figure out the structure (although in a natural language you
+do this subconsciously). This process is called *parsing*.
+
+Although formal and natural languages have many features in
+common—tokens, structure, and syntax—there are some differences:
+
+ambiguity:::
+  Natural languages are full of ambiguity, which people deal with by
+  using contextual clues and other information. Formal languages are
+  designed to be nearly or completely unambiguous, which means that any
+  statement has exactly one meaning, regardless of context.
+redundancy:::
+  In order to make up for ambiguity and reduce misunderstandings,
+  natural languages employ lots of redundancy. As a result, they are
+  often verbose. Formal languages are less redundant and more concise.
+literalness:::
+  Natural languages are full of idiom and metaphor. If we say, ``The
+  penny dropped'', there is probably no penny and nothing dropping (this
+  idiom means that someone understood something after a period of
+  confusion). Formal languages mean exactly what they say.
+
+Because we all grow up speaking natural languages, it is sometimes hard
+to adjust to formal languages. The difference between formal and natural
+language is like the difference between poetry and prose, but more so:
+
+Poetry:::
+  Words are used for their sounds as well as for their meaning, and the
+  whole poem together creates an effect or emotional response. Ambiguity
+  is not only common but often deliberate.
+Prose:::
+  The literal meaning of words is more important, and the structure
+  contributes more meaning. Prose is more amenable to analysis than
+  poetry but still often ambiguous.
+Programs:::
+  The meaning of a computer program is unambiguous and literal, and can
+  be understood entirely by analysis of the tokens and structure.
+
+Formal languages are more dense than natural languages, so it takes
+longer to read them. Also, the structure is important, so it is not
+always best to read from top to bottom, left to right. Instead, learn to
+parse the program in your head, identifying the tokens and interpreting
+the structure. Finally, the details matter. Small errors in spelling and
+punctuation, which you can get away with in natural languages, can make
+a big difference in a formal language.
+
+[[running-go-programs-on-your-machine]]
+Running Go programs on your machine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The _Go Playground_ imposes several limitations for security and cost
+reasons. For example, the program in listing [lst:now.go] should tell
+you the current time, but it will always claim it is 11 PM, November 10,
+2009—the date when Go was announced to the public.
+
+The playground also automates and hides important concepts and actions,
+which this section reveals.
+
+Before they can run, programs written in Go must be translated into
+``machine language'', the low-level instructions that the computer can
+follow. This translation is done by the Go *compiler*, one of the
+software tools that comes with the Go distribution.
+
+The compiler reads .go text files—the *source code*—and produces binary
+files that are executable. In this book we’ll use two command-line Go
+tools to run our programs:
+
+**`go build`**:::
+  This command reads the .go files in the current directory. If a
+  package main is found, the files are compiled to produce an
+  executable. You then use the OS shell to run the executable.
+**`go run `**myprogram.go:::
+  If the file myprogram.go declares a package main, it is compiled to a
+  temporary directory and immediately executed.
+
+The go build command requires an extra step to run the program, but on
+the other hand it gives you a stand-alone executable that does not
+depend on having the Go tools installed, so it can easily be
+distributed.
+
+[[using]]
+Using...
+^^^^^^^^
+
+When we run go build with the same name as the current directory (an
+.exe extension is added if you are on Windows)
+
+Once a program is compiled, you can execute it repeatedly without
+further translation. As a result, compiled programs often run faster
+than interpreted programs.
+
+Figure [fig.compiler] shows the steps of the development process.
+
+image:figs/compiler.png[The process of compiling and running a Go
+program.]
+
+The Go playground (shown in Figure [fig.playhello]) lets us use a Go
+compiler running on a Google server machine. When you hit the *Run*
+button, the playground Go compiler produces an executable and saves it
+in the server (if there are no errors). The server then runs the
+executable, and sends its output back to your browser. The executable is
+then discarded, so the Go playground is useful only for quick
+experiments.
+
+To compile Go programs locally, we need to install the Go distribution,
+as explained in Appendix XXX. After Go is installed, you can use the go
+build in the terminal.
+
+The programmer writes source code in the file hello.go and uses go build
+to compile it. If there are no errors, the compiler saves the executable
+in the file hello (or hello.exe, in Windows). To run the program, the
+user simply invokes it in the terminal. The output of the program is
+then displayed on the screen.
+
+This is how running hello.go looks like on the bash shell installed by
+default on GNU/Linux and Mac OS X machines:
+
+....
+$ ./hello
+Hello, World!
+....
+
+On the Windows command prompt, it’s very similar:
+
+....
+> hello.exe
+Hello, World!
+....
+
+Although it might seem complicated, these steps are automated for you in
+most program development environments. Usually you only have to press a
+button or type a single command to compile and run your program. On the
+other hand, it is important to know what steps are happening in the
+background, so if something goes wrong you can figure out what it is.
+
+[[debugging]]
+Debugging
+~~~~~~~~~
+
+Programmers make mistakes. For whimsical reasons, programming errors are
+called *bugs* and the process of tracking them down is called
+*debugging*.
+
+Programming, and especially debugging, sometimes brings out strong
+emotions. If you are struggling with a difficult bug, you might feel
+angry, despondent, or embarrassed.
+
+There is evidence that people naturally respond to computers as if they
+were people. When they work well, we think of them as teammates, and
+when they are obstinate or rude, we respond to them the same way we
+respond to rude, obstinate people (Reeves and Nass, _The Media Equation:
+How People Treat Computers, Television, and New Media Like Real People
+and Places_).
+
+Preparing for these reactions might help you deal with them. One
+approach is to think of the computer as an employee with certain
+strengths, like speed and precision, and particular weaknesses, like
+lack of empathy and inability to grasp the big picture.
+
+Your job is to be a good manager: find ways to take advantage of the
+strengths and mitigate the weaknesses. And find ways to use your
+emotions to engage with the problem, without letting your reactions
+interfere with your ability to work effectively.
+
+Learning to debug can be frustrating, but it is a valuable skill that is
+useful for many activities beyond programming. At the end of each
+chapter there is a section, like this one, with my suggestions for
+debugging. we hope they help!
+
+[[glossary]]
+Glossary
+~~~~~~~~
+
+problem solving:::
+  The process of formulating a problem, finding a solution, and
+  expressing it.
+declaration:::
+  One of the main parts of a Go source code file, such as import or func
+high-level language:::
+  A programming language like Go that is designed to be easy for humans
+  to read and write.
+low-level language:::
+  A programming language that is designed to be easy for a computer to
+  run; also called ``machine language'' or ``assembly language''.
+portability:::
+  A property of a program that can run on more than one kind of
+  computer.
+interpreter:::
+  A program that reads another program and executes it
+prompt:::
+  Characters displayed by the interpreter to indicate that it is ready
+  to take input from the user.
+program:::
+  A set of instructions that specifies a computation.
+print statement:::
+  An instruction that causes the Python interpreter to display a value
+  on the screen.
+operator:::
+  A special symbol that represents a simple computation like addition,
+  multiplication, or string concatenation.
+value:::
+  One of the basic units of data, like a number or string, that a
+  program manipulates.
+type:::
+  A category of values. The types we have seen so far are integers (type
+  int), floating-point numbers (type float), and strings (type str).
+integer:::
+  A type that represents whole numbers.
+floating-point:::
+  A type that represents numbers with fractional parts.
+string:::
+  A type that represents sequences of characters.
+natural language:::
+  Any one of the languages that people speak that evolved naturally.
+formal language:::
+  Any one of the languages that people have designed for specific
+  purposes, such as representing mathematical ideas or computer
+  programs; all programming languages are formal languages.
+token:::
+  One of the basic elements of the syntactic structure of a program,
+  analogous to a word in a natural language.
+syntax:::
+  The rules that govern the structure of a program.
+parse:::
+  To examine a program and analyze the syntactic structure.
+bug:::
+  An error in a program.
+debugging:::
+  The process of finding and correcting bugs.
+
+[[exercises-2]]
+Exercises
+~~~~~~~~~
+
+It is a good idea to read this book in front of a computer so you can
+try out the examples as you go.
+
+Whenever you are experimenting with a new feature, you should try to
+make mistakes. For example, in the ``Hello, world!'' program, what
+happens if you leave out one of the quotation marks? What if you leave
+out both? What if you spell print wrong?
+
+This kind of experiment helps you remember what you read; it also helps
+when you are programming, because you get to know what the error
+messages mean. It is better to make mistakes now and on purpose than
+later and accidentally.
+
+1.  In a print statement, what happens if you leave out one of the
+parentheses, or both?
+2.  If you are trying to print a string, what happens if you leave out
+one of the quotation marks, or both?
+3.  You can use a minus sign to make a negative number like -2. What
+happens if you put a plus sign before a number? What about 2++2?
+4.  In math notation, leading zeros are ok, as in 02. What happens if
+you try this in Python?
+5.  What happens if you have two values with no operator between them?
+
+Start the Python interpreter and use it as a calculator.
+
+1.  How many seconds are there in 42 minutes 42 seconds?
+2.  How many miles are there in 10 kilometers? Hint: there are 1.61
+kilometers in a mile.
+3.  If you run a 10 kilometer race in 42 minutes 42 seconds, what is
+your average pace (time per mile in minutes and seconds)? What is your
+average speed in miles per hour?

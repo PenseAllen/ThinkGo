@@ -1,0 +1,5 @@
+= Think Go
+
+include::00-preface.adoc[]
+
+include::01-the-way.adoc[]
