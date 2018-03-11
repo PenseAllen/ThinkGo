@@ -264,7 +264,7 @@ one of the quotation marks, or both?
 . Add another statement calling `fmt.Println("...")` below the first one, putting
 your own text between the quotes.
 . Write a program that displays the E. E. Cummings poem known as "`l(a"`
-precisely as shown below.
+precisely as shown below. Note that the poem includes 4 blank lines.
 
 ....
 l(a
