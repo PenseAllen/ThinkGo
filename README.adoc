@@ -1,0 +1,17 @@
+# Think Go
+
+Remix of _Think Python 2e_ and _Think Java 2e_ by Allen Downey and Chris Mayfield for the Go programming language.
+
+## This project is in a very early stage
+
+While this project is not a secret, there's no point in making it widely known at this time, because there's very little content for its target audience.
+
+## Tools I am using
+
+I started this book using *LaTeX*, the notation used by Downey and Mayfield in their books. After staying away from it for a few weeks because of two conferences and a vacation, *LaTeX* looked even more alien than before, so I decided to restart using *AsciiDoc*, the same notation I used to write _Fluent Python_.
+
+I've done significant writing using *ReStructuredText* (*ReST*), *Markdown*, and *AsciiDoc*. *AsciiDoc* is more expressive than the other two, has friendlier syntax than *ReST*, and supports standard frontmatter and backmatter book sections (dedication, preface, bibliography, glossary, index, colophon) plus footnotes and index entries. *AsciiDoc* does support UTF-8, despite its misleading name.
+
+The https://asciidoctor.org/[AsciiDoctor] toolchain in *Ruby* renders AsciiDoc in multiple formats. *AsciiDoctor* is more actively maintained than https://github.com/asciidoc[asciidoc], which had no releases from 2014 to 2016 and is still using *Python 2* in 2018.
+
+To write, I am using the *Atom* editor with the https://atom.io/packages/asciidoc-assistant[AsciiDoc Assistant] package -- though I had to install its sub-packages one by one, and I still can't use *asciidoc-preview* due to a key binding conflict I don't know how to solve. To preview, I am using the https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/[Asciidoctor.js Live Preview] plugin for *Firefox*.

@@ -4,7 +4,7 @@
 
 *Think Go* is part of a growing collection started by Allen Downey in 1999. The first was *How to Think Like a Computer Scientist*, self-published under the GNU Free Documentation License. That book used the Java language, but the focus was on programming, not the language. It was short and carefully written to offer a gradual learning path. Jargon was kept to a minimum and each technical term was defined when first used.
 
-Jeff Elkner realized Downey's book would be great for his high school students, and took advantage of the liberal license to convert the book to use Python instead. The result was *How to Think Like a Computer Scientist: Learning With Python*, published in 2001 by Allen's Green Tea Press. There are now variations of *How to Think…* in C, C++, and OCaml -- besides Java and Python.
+Jeff Elkner realized Downey's book would be great for his high school students, and took advantage of the liberal license to convert the book to use Python instead. The result was *How to Think Like a Computer Scientist: Learning With Python*, published in 2001 by Downeys's Green Tea Press. There are now variations of *How to Think…* in C, C++, and OCaml -- besides Java and Python.
 
 In 2012, Allen Downey did a significant rewrite that resulted in *Think Python*, now in its 2^nd^ edition (O'Reilly, 2015). Chris Mayfield joined Downey to write *Think Java*, and Laurent Rosenfeld wrote *Think Perl 6*.
 
