@@ -8,7 +8,7 @@ scientist. This way of thinking combines some of the best features of
 mathematics, engineering, and natural science. Like mathematicians,
 computer scientists use formal languages to denote ideas (specifically
 computations). Like engineers, they design things, assembling components
-into systems and evaluating tradeoffs among alternatives. Like
+into systems and evaluating trade-offs among alternatives. Like
 scientists, they observe the behavior of complex systems, form
 hypotheses, and test predictions.
 
@@ -113,16 +113,15 @@ of a program so we can talk about it. The next section covers some basic terms.
 [[program-structure]]
 === Program structure
 
-Go programs are made up of *declarations*. In listing <<lst-hello-go>> we
-have three declarations: `package`, `import`, and `func`.
+Go programs are made up of *declarations*. Every Go declaration starts with a
+*keyword*: special words that exist to structure a Go program, like the bones of
+a vertebrate. Because they are special, many program editors display keywords in
+a distinctive color or in `*bold*` type.
 
-We’ll have a lot more to say about those declarations, but basically
-this is what they mean:
+In listing <<lst-hello-go>> we have three declarations: `*package*`, `*import*`,
+and `*func*`. We’ll have a lot more to say about those declarations, but
+basically this is what they mean:
 
-`*func*`::
-  This declares a *function*, which is a sequence of instructions that
-  perform some computation or action. The only function in <<lst-hello-go>>
-  is named `main`.
 `*package*`::
   All Go code is organized in *packages*, which consist of one or more
   files with the `.go` extension. The package name `main` is mandatory for
@@ -130,18 +129,21 @@ this is what they mean:
   programs, but provide functions for use by other programs.
 `*import*`::
   This declaration tells Go which library packages are needed to build the
-  program. The main function uses the `fmt.Println` function, therefore we need
-  to import the `fmt` package, which provides text formatting and output
-  functions.
+  program. This program uses only the `fmt` package, which provides text
+  formatting and output functionality.
+`*func*`::
+  This declares a *function*, which is a sequence of instructions that
+  perform some computation or action. The only function in <<lst-hello-go>>
+  is named `main`. The `main` function uses the `fmt.Println` function. That's
+  why we needed to import the `fmt` package.
 
-`func`, `package`, and `import` are *keywords*: especial words that define the
-structure of a Go program. Go has 25 keywords: less than most popular
-programming languages.footnote:[For comparison: Python has 33 keywords, Java has 49 and C++ has 85.]
+A `.go` file can have several `*func*` declarations, but only one `*package*`
+declaration. We'll see in XXX that only one `*import*` declaration is necessary.
 
-Programming in Go is writing functions in `.go` files that make up packages.
-Usually our functions will use functions from library packages that we import.
-In this book we’ll mostly write stand-alone programs, but we’ll use many
-libraries written by others.
+Programming in Go is mostly about writing functions. We'll say more about
+functions right after the exercises--and Chapter XXX is entirely
+devoted to them. For now, let's focus on the overall program structure.
+
 
 [[exercises]]
 === Exercises
@@ -170,15 +172,15 @@ https://tgo.li/2r8yCXj
 
 Try these changes:
 
-. What happens when there is no package declaration?
+. What happens when there is no `*package*` declaration?
 . What if the package name is `banana` instead of `main`?
 . Restore the program to its original state. Then remove all blank
 lines and the whitespace to the left of `fmt.Println("Hello, World!")`.
 Does the program still run? What happens when you click the *Format*
 button?
-. What happens when there is no `import` declaration? After trying to
-run the program without the `import` line, check the box labeled
-*Imports*, then click *Format* and note what happens.
+. What happens when there is no `*import*` declaration? After trying to
+run the program without the `*import*` line, check the box labeled
+*Imports*, then click *Format* and try to explain what happens.
 . There is only one line with text in `hello.go` that you can delete
 without changing the behavior of the program. Which one? Can you guess its
 purpose, since it does not affect the program?
@@ -202,7 +204,7 @@ func main() {
 
 Let's start with the line marked with `//`. When Go sees `//`, it ignores
 everything from that point to the end of the line. That is a *comment*:
-text that explains the code in human language. Comments have no effect on the
+text explaining the code in human language. Comments have no effect on the
 execution of the program, but they make it easier for other programmers (and
 your future self) to understand what you meant to do.
 
