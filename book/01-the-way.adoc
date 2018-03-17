@@ -382,11 +382,11 @@ and `()` as part of their syntax.
 
 In contrast, at the very low end of the scale there is *machine code*, which
 consists of numeric instruction codes that a computer can execute directly.
-The <<lst-func-main-hex>> below the `main` function from <<lst-hello-go>> in
-machine code.
+The <<lst-func-main-hex>> below is the `main` function from <<lst-hello-go>>
+written in machine code.
 
 [[lst-func-main-hex,machine code sample]]
-.The main function in machine language.
+.The <<lst-hello-go>> `main` function in machine code.
 [source]
 ----
 64 48 8b 0c 25 f8 ff ff ff 48 3b 61 10 76 58 48 83 ec 48 48
@@ -399,23 +399,27 @@ c4 48 c3
 
 The first computer programmers (many of whom were women, by the way) did manage
 to write and read programs in machine code, until Kathleen Booth invented
-the first *assembly language*, a more readable notation low level programming.
+the first *assembly language*, a more readable notation for low level programming.
 
 Although assembly is much easier to read than raw machine code, it's still low
 level because the instructions are very primitive and closely tied to a specific
 machine model. For example, early computers didn't have built-in instructions to
-perform multiplication -- so any multiplication had to be written in machine
-code as a sequence of additions,  similar to the long multiplication method we
-learn in grade-school.
+perform multiplication -- so they had to be written in machine code as a
+sequence of additions, similar to the long multiplication method we learn in
+grade-school.
 
-Another woman, Grace Hopper, changed that when she invented the first
-*compiler*: a program that can read a program written in a high level language
-and write and equivalent program in machine code. Since then, we are able to
-write `x / y` and the compiler then generates all the machine code
-instructions needed to divide two numbers in one specific machine.
+Another pioneering programmer, Grace Hopper, changed that when she invented the
+first *compiler*: a program that can read a program written in a high level
+language and write and equivalent program in machine code. Since then, we are
+able to write `x / y` and the compiler then generates all the machine code
+instructions needed to divide two numbers in one specific computer.
+
+Today, only small parts of very specialized programs are written in low level
+languages, and no one writes machine code by hand -- unless they want to show
+off.
 
 As you learn to think like a computer scientist, you'll meet some very
-powerful idea. This is one:
+powerful ideas. This is one:
 
 [NOTE]
 ====
