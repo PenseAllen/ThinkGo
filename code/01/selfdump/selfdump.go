@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 )
 
-const limit = 60
-const bytesPerLn = 20
+const showLines = 5
+const bytesPerLine = 20
 
 func main() {
 	fmt.Print("Contents of: ", os.Args[0])
@@ -15,12 +15,13 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	stop := len(data)
-	if stop > limit {
-		stop = limit
+	start := len(data) / 2
+	stop := start + showLines * bytesPerLine
+	if stop > len(data) {
+		stop = len(data)
 	}
-	for index, octet := range data[:stop] {
-		if index % bytesPerLn == 0 {
+	for index, octet := range data[start:stop] {
+		if index % bytesPerLine == 0 {
 			fmt.Println()
 		}
 		fmt.Printf("%02x ", octet)
