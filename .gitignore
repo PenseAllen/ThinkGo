@@ -1,14 +1,8 @@
-# TeX output
-comment.cut
-thinkgo.aux
-thinkgo.idx
-thinkgo.log
-thinkgo.pdf
-thinkgo.toc
 
 # Editor files
 .~lock*
 *.sublime-*
+.idea/
 
 # Binaries for programs and plugins
 *.exe
