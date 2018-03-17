@@ -371,6 +371,61 @@ the details matter. Small errors in spelling and punctuation, which you can get
 away with in natural languages, can make a big difference in a formal language.
 
 
+[[hi-lo-level-languages]]
+=== High and low level programming languages
+
+We've seen that formal languages are designed for specific purposes. For
+programming, there are *low level languages* and *high level languages*. Go is a
+high level language, which means it was designed to be easy to read by humans.
+Most high level languages use English words and familiar math symbols like `+`
+and `()` as part of their syntax.
+
+In contrast, at the very low end of the scale there is *machine code*, which
+consists of numeric instruction codes that a computer can execute directly.
+The <<lst-func-main-hex>> below the `main` function from <<lst-hello-go>> in
+machine code.
+
+[[lst-func-main-hex,machine code sample]]
+.The main function in machine language.
+[source]
+----
+64 48 8b 0c 25 f8 ff ff ff 48 3b 61 10 76 58 48 83 ec 48 48
+89 6c 24 40 48 8d 6c 24 40 0f 57 c0 0f 11 44 24 30 48 8d 05
+94 09 01 00 48 89 44 24 30 48 8d 05 e8 16 04 00 48 89 44 24
+38 48 8d 44 24 30 48 89 04 24 48 c7 44 24 08 01 00 00 00 48
+c7 44 24 10 01 00 00 00 e8 e3 9d ff ff 48 8b 6c 24 40 48 83
+c4 48 c3
+----
+
+The first computer programmers (many of whom were women, by the way) did manage
+to write and read programs in machine code, until Kathleen Booth invented
+the first *assembly language*, a more readable notation low level programming.
+
+Although assembly is much easier to read than raw machine code, it's still low
+level because the instructions are very primitive and closely tied to a specific
+machine model. For example, early computers didn't have built-in instructions to
+perform multiplication -- so any multiplication had to be written in machine
+code as a sequence of additions,  similar to the long multiplication method we
+learn in grade-school.
+
+Another woman, Grace Hopper, changed that when she invented the first
+*compiler*: a program that can read a program written in a high level language
+and write and equivalent program in machine code. Since then, we are able to
+write `x / y` and the compiler then generates all the machine code
+instructions needed to divide two numbers in one specific machine.
+
+As you learn to think like a computer scientist, you'll meet some very
+powerful idea. This is one:
+
+[NOTE]
+====
+We can write programs that read programs and write other programs.
+====
+
+The next section will show how to use the Go compiler so you can build
+programs without the limitations of the _Go Playground_.
+
+
 [[running-go-programs-on-your-machine]]
 === Running Go programs on your machine
 
