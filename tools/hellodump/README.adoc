@@ -1,0 +1,12 @@
+# hellodump.go
+
+`hellodump.go` displays a hexadecimal dump of the `main` function from
+`hello.elf`.
+
+`hello.elf` is a GNU/Linux 64-bit binary executable file in ELF format,
+compiled with Go 1.10.
+
+I used the excellent https://www.hopperapp.com/[Hopper] disassembler to
+navigate `hello.elf` and find the start of the `main` function machine code.
+
+_LR_
