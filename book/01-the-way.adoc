@@ -664,7 +664,7 @@ you.
   of a region and a city name, for example `"America/Sao_Paulo"`. Wikipedia has
   a https://tgo.li/2DEtVpr[list of standard time zones].
 . What happens if you use a time zone name that is not recognized, like
-  `"Middle-earth/Hobbiton"`? Pay close attention to the error message.
+  `"Middle-earth/Hobbiton"`? Pay close attention to the resulting message.
 . Change the text used in `now.Format` from `"1/2 3:04:05 PM"` to
   `"2006-01-02 15:04:05"` and explain what happens with the output.
 
