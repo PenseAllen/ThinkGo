@@ -660,7 +660,7 @@ you.
 . Where would you edit <<lst-forever>> to make it show the time every 2
   seconds, instead of every second?
 . Where would you change the program to show time in a different place in the
-  third column? Hint: you need to use a supported time zone name, which consists
+  third column? Hint: you need to use a standard time zone name, which consists
   of a region and a city name, for example `"America/Sao_Paulo"`. Wikipedia has
   a https://tgo.li/2DEtVpr[list of standard time zones].
 . What happens if you use a time zone name that is not recognized, like
