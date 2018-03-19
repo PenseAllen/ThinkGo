@@ -662,8 +662,7 @@ you.
 . Where would you change the program to show time in a different place in the
   third column? Hint: you need to use a supported time zone name, which consists
   of a region and a city name, for example `"America/Sao_Paulo"`. Wikipedia has
-  a https://en.wikipedia.org/wiki/List_of_tz_database_time_zones[list of
-  standard time zones].
+  a https://tgo.li/2DEtVpr[list of standard time zones].
 . What happens if you use a time zone name that is not recognized, like
   `"Middle-earth/Hobbiton"`? Pay close attention to the error message.
 . Change the text used in `now.Format` from `"1/2 3:04:05 PM"` to
