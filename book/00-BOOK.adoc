@@ -1,4 +1,6 @@
 = Think Go
+:toc:
+:sectnums:
 
 include::00-preface.adoc[]
 
