@@ -586,8 +586,6 @@ simplest text-based "`animated`" clock we could make in Go.
 ==== Trying and failing in the playground
 
 Listing <<lst-forever>> shows a program that the _Go Playground_ refuses to run.
-Paste the source code to https://play.golang.org/ and click the *Run* button to
-see what happens.
 
 [[lst-forever]]
 .`forever.go`
@@ -596,6 +594,9 @@ see what happens.
 include::{sourcedir}forever/forever.go[]
 ----
 
+Visit that code in https://tgo.li/2FVjkYZ and click the *Run* button to
+see what happens.
+
 However, you can compile and run <<lst-forever>> on your machine using the `go
 run` or `go build` commands. That's next.
 
@@ -603,13 +604,14 @@ run` or `go build` commands. That's next.
 ==== Using `go run`
 
 We will explain all details of <<lst-forever>> in XXX. Now the goal is to
-practice compiling and running the the program.
+practice compiling and running the program.
 
 To execute <<lst-forever>> with `go run` on your machine, follow these steps:
 
 . Create a folder on your computer named `forever`.
 . Use your editor to create a file `forever.go` in the forever folder.
-. Paste the source code of <<lst-forever>> in the `forever.go` file you just created. Save it.
+. Paste the source code of <<lst-forever>> in the `forever.go` file you just
+  created. Save it.
 . Using the command-line, navigate to the `forever` folder.
 . Type the command `go run forever.go` to build and execute the program.
 . To interrupt the program, use the keyboard combination kbd:[Ctrl+C].
@@ -655,21 +657,33 @@ try. Make each change and and run the program again with `go run forever.go`.
 If there you make a mistake, try to understand what the error message is telling
 you.
 
-. Where would you change <<lst-forever>> to make it show the time every 5
+. Where would you edit <<lst-forever>> to make it show the time every 2
   seconds, instead of every second?
-. Change the text used in `now.Format` from `"3:04:05 PM"` to `"15:04:05"` and
-  explain what happens with the output.
+. Where would you change the program to show time in a different place in the
+  third column? Hint: you need to use a supported time zone name, which consists
+  of a region and a city name, for example `"America/Sao_Paulo"`. Wikipedia has
+  a https://en.wikipedia.org/wiki/List_of_tz_database_time_zones[list of
+  standard time zones].
+. What happens if you use a time zone name that is not recognized, like
+  `"Middle-earth/Hobbiton"`? Pay close attention to the error message.
+. Change the text used in `now.Format` from `"1/2 3:04:05 PM"` to
+  `"2006-01-02 15:04:05"` and explain what happens with the output.
 
-Date formatting is not the most important topic in Computer Science, so
-consider the following exercise completely optional.
+Many programming languages have a few mini-languages inside them. Go has the
+time formatting mini-language: a formal language based on the idea of expressing
+a date/time format through a concrete example, like `"3:04 PM"`.
+
+Time formatting is not the most important topic in Computer Science, so consider
+the following exercise optional.
 
 
-===== Exploring `now.Format`
+==== Exploring `now.Format`
 
 If you want to explore how `now.Format` works in depth, try this format text:
-`"01/02 03:04:05PM '06 -0700"`. You can change the order of the elements however
-you like, but `1`, `01` will always stand for the month, `2` or `02` represent
-the day, `3` or `03` are the hour, etc.
+`"01/02 03:04:05 PM '06 -0700"`. Note the numbers from 1 to 7 in that text. You
+can change the order of the elements however you like, but `1`, `01` will always
+stand for the month, `2` or `02` represent the day, `3` or `03` are the hour,
+etc.
 
 Other special numbers are `2006` for the year with four digits, `15` for 3 PM
 in 24-hour format, and `-07` for the time zone offset from UTC.
@@ -679,11 +693,9 @@ Some texts are special: `Jan` or `January` spell out the month, `Mon` or
 Time) is an alternate format for the time zone (MST is UTC -7, or -0700).
 
 Other characters will appear as themselves, so you can use `/`, `-`, `:`, `,` or
-spaces as separators between the elements. For example, the date in a formal
-letter in the US would be `January 2, 2006`, while in the UK it would look like
-`2 January 2006`. In Japan, a common format is `2006年01月02日`, similar to the
-Western `2006-01-02` with kanji characters--for year, month, and day--after
-each element of the date.
+spaces as separators between the elements. For example, in Japan, a common
+format is `2006年01月02日`, similar to the Western `2006-01-02` with kanji
+characters--for year, month, and day--after each element of the date.
 
 
 [[debugging]]
