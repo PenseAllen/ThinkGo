@@ -210,8 +210,8 @@ among numbers and symbols. Chemists use a formal language to represent
 the chemical structure of molecules. And most importantly:
 
 ____
-*Programming languages are formal languages that have been designed to
-express computations.*
+Programming languages are formal languages that have been designed to
+express computations.
 ____
 
 Formal languages tend to have strict *syntax* rules that govern the structure of
@@ -660,17 +660,17 @@ you.
 . Where would you edit <<lst-forever>> to make it show the time every 2
   seconds, instead of every second?
 . Where would you change the program to show time in a different place in the
-  third column? Hint: you need to use a standard time zone name, which consists
-  of a region and a city name, for example `"America/Sao_Paulo"`. Wikipedia has
-  a https://tgo.li/2DEtVpr[list of standard time zones].
+  third column? Hint: you need to use a standard time zone name, which usually
+  consists of a region and a city name. For example `"America/Sao_Paulo"`.
+  Wikipedia has a https://tgo.li/2DEtVpr[list of standard time zones].
 . What happens if you use a time zone name that is not recognized, like
   `"Middle-earth/Hobbiton"`? Pay close attention to the resulting message.
 . Change the text used in `now.Format` from `"1/2 3:04:05 PM"` to
   `"2006-01-02 15:04:05"` and explain what happens with the output.
 
-Many programming languages have a few mini-languages inside them. Go has the
-time formatting mini-language: a formal language based on the idea of expressing
-a date/time format through a concrete example, like `"3:04 PM"`.
+Many programming languages have mini-languages inside them. Go has the time
+formatting mini-language: a formal language based on the idea of expressing a
+date/time format through a concrete example, like `"3:04 PM"`.
 
 Time formatting is not the most important topic in Computer Science, so consider
 the following exercise optional.
@@ -680,9 +680,9 @@ the following exercise optional.
 
 If you want to explore how `now.Format` works in depth, try this format text:
 `"01/02 03:04:05 PM '06 -0700"`. Note the numbers from 1 to 7 in that text. You
-can change the order of the elements however you like, but `1`, `01` will always
-stand for the month, `2` or `02` represent the day, `3` or `03` are the hour,
-etc.
+can change the order of the elements however you like, but `1` or `01` will
+always stand for the month, `2` or `02` represent the day, `3` or `03` are the
+hour, etc.
 
 Other special numbers are `2006` for the year with four digits, `15` for 3 PM
 in 24-hour format, and `-07` for the time zone offset from UTC.
