@@ -1,0 +1,3 @@
+#!/bin/bash
+asciidoctor 00-BOOK.adoc
+open 00-BOOK.html
