@@ -685,9 +685,9 @@ for you to practice the <<edit-test-dance>>.
 Programmers spend a lot of time repeating these steps:
 
 . Edit the source code.
-. Switch to the command line and test the code with `go run forever.go`.
+. Test the code.
 . Go back to editor and change something.
-. Switch to the command line again to test.
+. Test the code again.
 . Repeat until done.
 
 TIP: A good way of doing the edit-test cycle is to have the editor in one window
