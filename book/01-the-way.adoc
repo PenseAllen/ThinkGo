@@ -8,7 +8,7 @@
 The goal of this book is to teach you to think like a computer
 scientist. This way of thinking combines some of the best features of
 mathematics, engineering, and natural science. Like mathematicians,
-computer scientists use formal languages to denote ideas (specifically
+computer scientists use *formal languages* to denote ideas (specifically
 computations). Like engineers, they design things, assembling components
 into systems and evaluating trade-offs among alternatives. Like
 scientists, they observe the behavior of complex systems, form
@@ -24,6 +24,7 @@ this chapter is called, "`The way of the program`".
 On one level, you will be learning to program, a useful skill by itself.
 On another level, you will use programming as a means to an end. As we
 go along, that end will become clearer.
+
 
 [[what-is-a-program]]
 === What is a program?
@@ -278,7 +279,7 @@ the `main` function at the bottom of the file. Go doesn't care about the order
 of function declarations. But many programmers are used to putting `main` below
 all other functions anyway.]. With practice, you will learn to parse the program
 in your head, identifying the tokens and interpreting the structure. The most
-important tokens are the *keywords*: program structure is build around them.
+important tokens are the keywords: program structure is build around them.
 Finally, the details matter. Small errors in spelling and punctuation, which you
 can get away with in natural languages, can make a big difference in a formal
 language.
@@ -349,6 +350,7 @@ the screen.
 Go is "`case-sensitive`", which means that uppercase and lowercase letters are
 considered different. In this example, `Println` has precisely one uppercase
 letter; `println` and `PRINTLN` won’t work.
+
 
 [[exercises-1-2]]
 === Exercises
@@ -456,7 +458,7 @@ the <<lst-func-main-assembly>>.]:
 ----
 
 Kathleen Booth also designed the first *assembler* -- a program that reads
-*assembly language* and generates *machine code* automatically.
+assembly language and generates machine code automatically.
 
 Although assembly language is easier to read than machine code, it's still
 low-level because the instructions are very primitive and closely tied to a
@@ -509,10 +511,10 @@ include::{sourcedir}now/now.go[]
 The playground also automates and hides important concepts and actions, which
 this section reveals.
 
-Before it can run, Go source code must be translated to machine code by the Go
-*compiler*, one of the software tools that is part of the Go installation.
+Before it can run, Go source code must be translated to machine code by the
+compiler that is part of the Go installation.
 
-In this book we’ll use two command-line Go tools to compile our programs:
+In this book we’ll use two command-line Go tools to compile programs:
 
 `*go build*`::
   This command reads the `.go` files in the current directory. If a package
@@ -649,6 +651,7 @@ you may omit the `.exe` extension to run the program:
 The output will not be `???`--we don't want to spoil the exercise for you. The
 `^C` is how the shell displays the kbd:[Ctrl+C] combination.
 
+
 ==== Experiments with `forever.go`
 
 Now we want to encourage you to experiment changing the program. Even without
@@ -661,40 +664,95 @@ you.
   seconds, instead of every second?
 . Where would you change the program to show time in a different place in the
   third column? Hint: you need to use a standard time zone name, which usually
-  consists of a region and a city name. For example `"America/Sao_Paulo"`.
+  consists of a region and a city name, for example `"America/Sao_Paulo"`.
   Wikipedia has a https://tgo.li/2DEtVpr[list of standard time zones].
 . What happens if you use a time zone name that is not recognized, like
   `"Middle-earth/Hobbiton"`? Pay close attention to the resulting message.
-. Change the text used in `now.Format` from `"1/2 3:04:05 PM"` to
+. Change the text after `timeFormat =` from `"1/2 3:04:05 PM"` to
   `"2006-01-02 15:04:05"` and explain what happens with the output.
 
-Many programming languages have mini-languages inside them. Go has the time
+Many programming languages have mini-languages inside them. Go has a time
 formatting mini-language: a formal language based on the idea of expressing a
 date/time format through a concrete example, like `"3:04 PM"`.
 
-Time formatting is not the most important topic in Computer Science, so consider
-the following exercise optional.
+The last exercise in this chapter is not just about time formatting: the goal is
+for you to practice the <<edit-test-dance>>.
+
+[[edit-test-dance,edit-test dance]]
+.The edit-test dance
+****
+
+Programmers spend a lot of time repeating these steps:
+
+. Edit the source code.
+. Switch to the command line and test the code with `go run forever.go`.
+. Go back to editor and change something.
+. Switch to the command line again to test.
+. Repeat until done.
+
+TIP: A good way of doing the edit-test cycle is to have the editor in one window
+and the terminal/console in another window, and alternate between them using the
+shortcut for your system: kbd:[ALT+TAB] on Windows and GNU/Linux, or kbd:[⌘+TAB]
+on MacOS. Also, use the kbd:[↑] (up arrow) to repeat commands on the command
+line without typing them again.
+
+Using the app switching shortcut on a Windows or GNU/Linux machine, the
+edit-test dance becomes:
+
+. Edit the source code.
+. kbd:[ALT+TAB] to go to the terminal/console.
+. kbd:[↑] to repeat the previous `go run forever.go` without typing it again.
+. kbd:[ENTER] to run the command.
+. kbd:[ALT+TAB] to go back to the editor.
+
+In a short time you'll be good at this dance. The next exercise should help.
+****
 
 
-==== Exploring `now.Format`
+==== Exploring date and time formats
 
-If you want to explore how `now.Format` works in depth, try this format text:
-`"01/02 03:04:05 PM '06 -0700"`. Note the numbers from 1 to 7 in that text. You
-can change the order of the elements however you like, but `1` or `01` will
-always stand for the month, `2` or `02` represent the day, `3` or `03` are the
-hour, etc.
+If you want to explore how Go time format mini-language works in depth, try this
+text for `timeFormat`:
 
-Other special numbers are `2006` for the year with four digits, `15` for 3 PM
-in 24-hour format, and `-07` for the time zone offset from UTC.
+[source,go]
+----
+  timeFormat = "01/02 03:04:05 PM '06 -0700"
+----
+
+Run `forever.go` again to see the result.
+
+Note the numbers from 1 to 7 in that `timeFormat` line. You can change the order
+of the elements however you like, but `1` will always stand for the month, `2`
+represents the day, `3` is the hour, `6` the year, etc. The `-0700` at the end
+sets the format of the time zone offsetfootnote:[Wikipedia has a brief article
+explaining the https://en.wikipedia.org/wiki/UTC_offset[UTC time zone offset].].
+
+A leading zero--as in `01`--makes numbers less than 10 appear with a zero prefix
+in the output. A leading underscore--like `_1`--will add a space to the left of
+numbers less than 10.
+
+Add, remove or move around the numbers in the formatting text and run the
+program to see what happens.
+
+Besides the digits `1` to `7`, other special numbers are `2006` to display the
+year with four digits, and `15` for the hour in 24-hour format--which makes
+sense if you remember that 3 is represents the hour, and 3PM is 15:00 in a
+24-hour clock. The digits `8` or `9` have no special meaning in the time format
+mini-language, so they always appear as themselves.
 
 Some texts are special: `Jan` or `January` spell out the month, `Mon` or
 `Monday` show the weekday, `PM` stands for AM/PM, and `MST` (Mountain Standard
 Time) is an alternate format for the time zone (MST is UTC -7, or -0700).
 
+Change the code to display the date in the formal British style: 9 July 1932.
+
 Other characters will appear as themselves, so you can use `/`, `-`, `:`, `,` or
 spaces as separators between the elements. For example, in Japan, a common
 format is `2006年01月02日`, similar to the Western `2006-01-02` with kanji
 characters--for year, month, and day--after each element of the date.
+
+Make your own experiments with these time formatting elements. Remember: the
+goal here is to practice the <<edit-test-dance>>.
 
 
 [[debugging]]
@@ -727,71 +785,62 @@ Learning to debug can be frustrating, but it is a valuable skill that is useful
 for many activities beyond programming. At the end of each chapter there is a
 section, like this one, with my suggestions for debugging. we hope they help!
 
+
 [[glossary]]
 === Glossary
 
+assembler::
+  XXX
+assembly language::
+  XXX
+bug::
+  An error in a program.
 comment::
   Explanations for humans embedded in the source code, which the compiler
-  ignores. `//` and `/* */`. XXX
-statement::
+  ignores.
+compiler::
   XXX
-problem solving::
-  The process of formulating a problem, finding a solution, and
-  expressing it.
+debugging::
+  The process of finding and correcting *bugs*.
 declaration::
   One of the main parts of a Go source code file, such as import or func
+formal language::
+  Any one of the languages that people have designed for specific purposes,
+  such as representing mathematical ideas or computer programs; all programming
+  languages are formal languages. Contrast with *natural language*.
+function::
+  XXX
+high-level language::
+  A programming language like Go that is designed to be easy for humans to read
+  and write.
 keyword::
   Special words in a programming language that define the program structure and
   flow of execution. Go has keywords for declarations, conditional execution,
-  repetition and other crucial definitions and operations.
-high-level language::
-  A programming language like Go that is designed to be easy for humans
-  to read and write.
+  repetition and other fundamental definitions and operations.
+library package::
+  XXX
 low-level language::
-  A programming language that is designed to be easy for a computer to
-  run; also called "`machine language`" or "`assembly language`".
-portability::
-  A property of a program that can run on more than one kind of
-  computer.
-interpreter::
-  A program that reads another program and executes it
-prompt::
-  Characters displayed by the interpreter to indicate that it is ready
-  to take input from the user.
+  A programming language that is designed to be easy for a computer to run; see
+  *machine code* and *assembly language*.
+machine code::
+  XXX. Also known as *machine language*.
+natural language::
+  Any one of the languages that people speak that evolved naturally. Contrast
+  with *formal language*.
+package::
+  XXX
+parse::
+  To examine a program and analyze the syntactic structure.
+problem solving::
+  The process of formulating a problem, finding a solution, and expressing it.
 program::
   A set of instructions that specifies a computation.
-print statement::
-  An instruction that causes the Python interpreter to display a value
-  on the screen.
-operator::
-  A special symbol that represents a simple computation like addition,
-  multiplication, or string concatenation.
-value::
-  One of the basic units of data, like a number or string, that a
-  program manipulates.
-type::
-  A category of values. The types we have seen so far are integers (type
-  int), floating-point numbers (type float), and strings (type str).
-integer::
-  A type that represents whole numbers.
-floating-point::
-  A type that represents numbers with fractional parts.
-string::
-  A type that represents sequences of characters.
-natural language::
-  Any one of the languages that people speak that evolved naturally.
-formal language::
-  Any one of the languages that people have designed for specific
-  purposes, such as representing mathematical ideas or computer
-  programs; all programming languages are formal languages.
+source code::
+  XXX
+statement::
+  XXX
+syntax::
+  The rules that govern the structure of a program.
 token::
   One of the basic elements of the syntactic structure of a program,
   analogous to a word in a natural language.
-syntax::
-  The rules that govern the structure of a program.
-parse::
-  To examine a program and analyze the syntactic structure.
-bug::
-  An error in a program.
-debugging::
-  The process of finding and correcting bugs.

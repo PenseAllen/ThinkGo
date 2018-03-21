@@ -1,0 +1,19 @@
+
+[[glossary]]
+=== Glossary
+
+operator::
+  A special symbol that represents a simple computation like addition,
+  multiplication, or string concatenation.
+value::
+  One of the basic units of data, like a number or string, that a
+  program manipulates.
+type::
+  A category of values. The types we have seen so far are integers (type
+  int), floating-point numbers (type float), and strings (type str).
+integer::
+  A type that represents whole numbers.
+floating-point::
+  A type that represents numbers with fractional parts.
+string::
+  A type that represents sequences of characters.

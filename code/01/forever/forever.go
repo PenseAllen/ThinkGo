@@ -6,16 +6,13 @@ import (
 )
 
 const (
-	timeFormat = "1/2 3:04:05 PM"
+	timeFormat = "1/2 3:08:05 PM"
 	remoteZone = "Pacific/Fiji"
 	delay      = 1 * time.Second
 )
 
 func main() {
-	remoteLoc, err := time.LoadLocation(remoteZone)
-	if err != nil {
-		panic(err)
-	}
+	remoteLoc, _ := time.LoadLocation(remoteZone)
 	for {
 		now := time.Now()
 		utc := now.In(time.UTC)
