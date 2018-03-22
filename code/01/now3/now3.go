@@ -10,10 +10,10 @@ const (
 )
 
 func main() {
+	remoteLoc, _ := time.LoadLocation("Pacific/Fiji")
 	now := time.Now()
 	utc := now.In(time.UTC)
 	local := now.In(time.Local)
-	remoteLoc, _ := time.LoadLocation("Pacific/Fiji")
 	remote := now.In(remoteLoc)
 	fmt.Println("UTC   =", utc.Format(timeFormat))
 	fmt.Println("Local =", local.Format(timeFormat))
