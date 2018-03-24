@@ -9,9 +9,9 @@ import (
 func main() {
 	for {
 		if rand.Intn(2) == 0 {
-			fmt.Print("/")
+			fmt.Print("/") // better: ╱
 		} else {
-			fmt.Print("\\")
+			fmt.Print("\\") // better: ╲
 		}
 		time.Sleep(5 * time.Millisecond)
 	}
