@@ -662,12 +662,15 @@ of the `for` keyword:
 [source,go]
 ----
 func main() {
-	for {
-		fmt.Println(time.Now())
-		time.Sleep(1 * time.Second)
+	for {  <1>
+		fmt.Println(time.Now())  <2>
+		time.Sleep(1 * time.Second)  <3>
 	}
 }
 ----
+<1> Repeat the two statements in the enclosed block forever.
+<2> Display the current time.
+<3> Pause for one second.
 
 Note that the `for` keyword is followed by a block of code inside a pair of
 braces `{…}`. In <<function-syntax>> we talked about the function body, which
@@ -684,6 +687,19 @@ are a few variations of `for` but the simplest one is shown in <<lst-now2b>>:
 until you interrupt the program with kbd:[Ctrl+C], or some other disruption
 affects the program or the computer itself--for example, Windows decides to
 restart to install the latest updates).
+
+Besides the `fmt.Prinln` function that we've seen since <<lst-hello-go>>, the
+new functions in <<lst-now2>> are `time.Now()` and `time.Sleep(…)`. The `time`
+package has several functions related to time keeping and computing durations.
+To get the current time, we use `time.Now()`. To make a function pause for a
+moment, we use `time.Sleep(…)`, which requires a numeric argument specifying the
+duration of the pause. The unit used by `time.Sleep` is the nanosecond, or
+10^-9^ (^1^/~1.000.000.000~). For convenience, you can multiply the duration by one of the
+special values defined in the `time` package, such as `time.Hour`,
+`time.Second`, or `time.Millisecond`footnote[See
+https://golang.org/pkg/time/#Duration[`time.Duration`] in the Go documentation
+for a list of predefined duration values.]. 
+
 
 
 
