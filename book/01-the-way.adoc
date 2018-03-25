@@ -488,18 +488,22 @@ When we program in a language that needs to be translated to run, the text we
 write is called the *source code*. Listing <<lst-hello-go>> is an example of
 source code.
 
-The next section will show how to use the Go compiler so you can build and run
-programs without the limitations of the _Go Playground_.
+The next section will show a program that will only work correctly if you run it
+on your machine instead of the _Go Playground_.
 
+[[time-now]]
+=== What time is it?
 
-[[running-go-programs-on-your-machine]]
-=== Running Go programs on your machine
+The command shell on your computer probably has a command to tell you the
+current time. In the bash shell (GNU/Linux or Mac OS) and on PowerShell
+(Windows), the command is called `date`. Open the terminal and try it:
 
-The _Go Playground_ imposes several limitations for security reasons and to
-keep costs down. For example, the program in listing <<lst-now>> should tell you
-the current time, but on the playground it will always claim it is 11:00 PM,
-November 10, 2009 -- the date when Go was announced to the public. You can see
-the <<lst-now>> program in the playground at https://tgo.li/2rpsSst.
+----
+$ date
+Sun Mar 25 20:19:21 UTC 2018
+----
+
+<<lst-now>> is a similar program, written in Go:
 
 [[lst-now]]
 .`now.go`
@@ -508,8 +512,28 @@ the <<lst-now>> program in the playground at https://tgo.li/2rpsSst.
 include::{sourcedir}now/now.go[]
 ----
 
-The playground also automates and hides important concepts and actions, which
-this section reveals.
+Compared to <<lst-hello-go>>, <<lst-now>> introduces two new features:
+
+. The `import` declaration now mentions two packages: `fmt` and `time`. When we
+need more than one package, they must written one per line in a list delimited
+by parenthesis (compare with <<lst-hello-go>>).
+. In the second call to `fmt.Println`, instead of displaying a fixed text we use
+the `time.Now()` function to retrieve the current time.
+
+You can see the <<lst-now>> program in the playground at https://tgo.li/2rpsSst,
+but you will be disappointed: on the playground it will always say it is 11:00
+PM, November 10, 2009footnote:[That's when Go was announced to the public.].
+
+Our next task is to work around this problem.
+
+
+[[running-go-programs-on-your-machine]]
+=== Running Go programs on your machine
+
+The _Go Playground_ imposes several limitations for security reasons and to keep
+costs down. That's why <<lst-now>> always displays the same time there. The
+playground also hides important concepts and actions, which this section
+reveals.
 
 Before it can run, Go source code must be translated to machine code by the
 compiler that is part of the Go installation.
@@ -540,12 +564,12 @@ This is how running <<lst-now>> looks like on the bash shell installed by
 default on GNU/Linux and Mac OS X machines:
 
 ----
-$ ls <1>
+…/now$ ls <1>
 now.go
-$ go build <2>
-$ ls <3>
+…/now$ go build <2>
+…/now$ ls <3>
 now     now.go
-$ ./now <4>
+…/now$ ./now <4>
 This machine believes it's now:
 2018-03-18 21:12:08.34314028 -0300 -03 m=+0.000422650
 ----
@@ -557,14 +581,29 @@ This machine believes it's now:
 On the Windows command prompt, it’s very similar:
 
 ----
-> XXX
+C:\…\now>dir /b <1>
+now.go
+
+C:\…\now>go build <2>
+
+C:\…\now>dir /b <3>
+now.exe
+now.go
+
+C:\…\now>now <4>
+This machine believes it's now:
+2018-03-25 16:08:21.7005402 -0300 -03 m=+0.002002601
 ----
+<1> List files in directory--`/b` for brief listing. Only `now.go` is there.
+<2> Compile program in the current directory.
+<3> List files again. Note the `now` file.
+<4> Execute `now.exe`--it's OK to ommit the `.exe` part to run the program.
 
 The process of building and running simple programs is reduced to one step
 if you use the `go run` command. On the bash shell:
 
 ----
-$ go run now.go
+…/now$ go run now.go
 This machine believes it's now:
 2018-03-18 22:42:17.209165629 -0300 -03 m=+0.000340954
 ----
@@ -572,13 +611,15 @@ This machine believes it's now:
 On Windows:
 
 ----
-> go run now.go
+C:\…\now>go run now.go
+This machine believes it's now:
+2018-03-25 16:11:55.922444 -0300 -03 m=+0.002000401
 ----
 
 This <<lst-now>> program is a bit more interesting than <<lst-hello-go>>: at
 least on your machine it should display a different time each time it runs.
 In the next exercise will you will build a more interesting variation, the
-simplest text-based "`animated`" clock we could make in Go.
+simplest text-based "`animated`" clock we could imagine in Go.
 
 
 [[exercises-1-3]]
@@ -633,7 +674,7 @@ After completing the previous exercise, you can compile <<lst-now2>> with
 Here is how to run `forever` on the Mac OS X or GNU/Linux bash shell:
 
 ----
-$ ./now2
+…/now$ ./now2
 ???
 ^C
 ----
@@ -642,7 +683,7 @@ On the Windows command prompt, `now2.exe` is executed like this--note that
 you may omit the `.exe` extension to run the program:
 
 ----
-> now2
+C:\…\now> now2
 ???
 ^C
 ----
@@ -688,20 +729,20 @@ until you interrupt the program with kbd:[Ctrl+C], or some other disruption
 affects the program or the computer itself--for example, Windows decides to
 restart to install the latest updates).
 
-Besides the `fmt.Prinln` function that we've seen since <<lst-hello-go>>, the
-new functions in <<lst-now2>> are `time.Now()` and `time.Sleep(…)`. The `time`
-package has several functions related to time keeping and computing durations.
-To get the current time, we use `time.Now()`. To make a function pause for a
-moment, we use `time.Sleep(…)`, which requires a numeric argument specifying the
-duration of the pause. The unit used by `time.Sleep` is the nanosecond, or
-10^-9^ (^1^/~1.000.000.000~). For convenience, you can multiply the duration by one of the
-special values defined in the `time` package, such as `time.Hour`,
-`time.Second`, or `time.Millisecond`footnote[See
+To make our program pause for a moment, we use `time.Sleep(…)`, which requires a
+numeric argument specifying the duration of the pause. The unit used by
+`time.Sleep` is the nanosecond, or 10^-9^ (^1^/~1.000.000.000~). For
+convenience, you can multiply the duration by one of the special values defined
+in the `time` package, such as `time.Hour`, `time.Second`, or
+`time.Millisecond`footnote[See
 https://golang.org/pkg/time/#Duration[`time.Duration`] in the Go documentation
-for a list of predefined duration values.]. 
+for a list of predefined duration values.].
 
-
-
+''''
+░ ▒ ▓ █ ▄ ■ ▀ ·
+│ ─ ┐ └ ┘ ┌ ┼ ┤ ├ ┴ ┬
+║ ═ ╗ ╚ ╝ ╔ ╬ ╣ ╠ ╩ ╦
+''''
 
 [[edit-test-dance,edit-test dance]]
 .The edit-test dance
