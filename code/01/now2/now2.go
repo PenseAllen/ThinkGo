@@ -7,7 +7,7 @@ import (
 
 func main() {
 	for {
-		fmt.Println(time.Now().In(time.Local))
+		fmt.Println(time.Now())
 		time.Sleep(1 * time.Second)
 	}
 }

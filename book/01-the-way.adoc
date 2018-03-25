@@ -36,7 +36,7 @@ it can also be a symbolic computation, such as searching and replacing
 text in a document or something graphical, like processing an image or
 playing a video.
 
-The details look different in different languages, but a few basic
+The details look different in different languages, but five basic
 operations appear in just about every language:
 
 input::
@@ -557,8 +557,7 @@ This machine believes it's now:
 On the Windows command prompt, it’s very similar:
 
 ----
-> hello.exe
-Hello, World!
+> XXX
 ----
 
 The process of building and running simple programs is reduced to one step
@@ -577,7 +576,7 @@ On Windows:
 ----
 
 This <<lst-now>> program is a bit more interesting than <<lst-hello-go>>: at
-least on our machines it displays a different time every time it runs.
+least on your machine it should display a different time each time it runs.
 In the next exercise will you will build a more interesting variation, the
 simplest text-based "`animated`" clock we could make in Go.
 
@@ -587,35 +586,35 @@ simplest text-based "`animated`" clock we could make in Go.
 
 ==== Trying and failing in the playground
 
-Listing <<lst-forever>> shows a program that the _Go Playground_ refuses to run.
+Listing <<lst-now2>> shows a program that the _Go Playground_ refuses to run.
 
-[[lst-forever]]
-.`forever.go`
+[[lst-now2]]
+.`now2.go`
 [source,go]
 ----
-include::{sourcedir}forever/forever.go[]
+include::{sourcedir}now2/now2.go[]
 ----
 
-Visit that code in https://tgo.li/2FVjkYZ and click the *Run* button to
+Visit that code in https://tgo.li/2GieQiH click the *Run* button to
 see what happens.
 
-However, you can compile and run <<lst-forever>> on your machine using the `go
+However, you can compile and run <<lst-now2>> on your machine using the `go
 run` or `go build` commands. That's next.
 
 
 ==== Using `go run`
 
-We will explain all details of <<lst-forever>> in XXX. Now the goal is to
+We will explain all details of <<lst-now2>> in XXX. Now the goal is to
 practice compiling and running the program.
 
-To execute <<lst-forever>> with `go run` on your machine, follow these steps:
+To execute <<lst-now2>> with `go run` on your machine, follow these steps:
 
-. Create a folder on your computer named `forever`.
-. Use your editor to create a file `forever.go` in the forever folder.
-. Paste the source code of <<lst-forever>> in the `forever.go` file you just
+. Create a folder on your computer named `now2`.
+. Use your editor to create a file `now2.go` in the forever folder.
+. Paste the source code of <<lst-now2>> in the `now2.go` file you just
   created. Save it.
-. Using the command-line, navigate to the `forever` folder.
-. Type the command `go run forever.go` to build and execute the program.
+. Using the command-line, navigate to the `now2` folder.
+. Type the command `go run now2.go` to build and execute the program.
 . To interrupt the program, use the keyboard combination kbd:[Ctrl+C].
 
 Can you explain why the _Go Playground_ refuses to run this program?
@@ -623,27 +622,27 @@ Can you explain why the _Go Playground_ refuses to run this program?
 
 ==== Using `go build`
 
-After completing the previous exercise, you can compile <<lst-forever>> with
+After completing the previous exercise, you can compile <<lst-now2>> with
 `go build` doing this:
 
-. Type the command `go build`. This creates the `forever` executable file
-  (`forever.exe` on Windows).
-. Run the `forever` or `forever.exe` executable. See examples below.
+. Type the command `go build`. This creates the `now2` executable file
+  (`now2.exe` on Windows).
+. Run the `now` or `now2.exe` executable. See examples below.
 . To interrupt the program, use the keyboard combination kbd:[Ctrl+C].
 
 Here is how to run `forever` on the Mac OS X or GNU/Linux bash shell:
 
 ----
-$ ./forever
+$ ./now2
 ???
 ^C
 ----
 
-On the Windows command prompt, `forever.exe` is executed like this--note that
+On the Windows command prompt, `now2.exe` is executed like this--note that
 you may omit the `.exe` extension to run the program:
 
 ----
-> forever
+> now2
 ???
 ^C
 ----
@@ -651,32 +650,42 @@ you may omit the `.exe` extension to run the program:
 The output will not be `???`--we don't want to spoil the exercise for you. The
 `^C` is how the shell displays the kbd:[Ctrl+C] combination.
 
+=== Repetition: first take
 
-==== Experiments with `forever.go`
+In <<what-is-a-program>> we saw that one of the five basic operations every
+language allows is output: that's all that <<lst-hello-go>> and <<lst-now>> do.
+But <<lst-now2b>> shows another basic operation: repetition. That's the purpose
+of the `for` keyword:
 
-Now we want to encourage you to experiment changing the program. Even without
-understanding all the code in <<lst-forever>>, here are a couple edits you can
-try. Make each change and and run the program again with `go run forever.go`.
-If there you make a mistake, try to understand what the error message is telling
-you.
+[[lst-now2b]]
+.`main` from `now2.go`
+[source,go]
+----
+func main() {
+	for {
+		fmt.Println(time.Now())
+		time.Sleep(1 * time.Second)
+	}
+}
+----
 
-. Where would you edit <<lst-forever>> to make it show the time every 2
-  seconds, instead of every second?
-. Where would you change the program to show time in a different place in the
-  third column? Hint: you need to use a standard time zone name, which usually
-  consists of a region and a city name, for example `"America/Sao_Paulo"`.
-  Wikipedia has a https://tgo.li/2DEtVpr[list of standard time zones].
-. What happens if you use a time zone name that is not recognized, like
-  `"Middle-earth/Hobbiton"`? Pay close attention to the resulting message.
-. Change the text after `timeFormat =` from `"1/2 3:04:05 PM"` to
-  `"2006-01-02 15:04:05"` and explain what happens with the output.
+Note that the `for` keyword is followed by a block of code inside a pair of
+braces `{…}`. In <<function-syntax>> we talked about the function body, which
+is the block that holds the statements inside a `func` declaration--also
+delimited by braces. In <<lst-now2b>> the body of the `main` function contains
+a single `for` statement, but that statement has its own block of statements
+with two lines: one with `fmt.Println`, the other with `time.Sleep`. In
+computing, nested structures are quite common: you'll get used to seeing blocks
+inside blocks inside other blocks.
 
-Many programming languages have mini-languages inside them. Go has a time
-formatting mini-language: a formal language based on the idea of expressing a
-date/time format through a concrete example, like `"3:04 PM"`.
+The `for` statement in Go executes the statements in its block repeatedly. There
+are a few variations of `for` but the simplest one is shown in <<lst-now2b>>:
+`for {…}` repeats the block "`forever`"footnote:[In practice "`forever`" means
+until you interrupt the program with kbd:[Ctrl+C], or some other disruption
+affects the program or the computer itself--for example, Windows decides to
+restart to install the latest updates).
 
-The last exercise in this chapter is not just about time formatting: the goal is
-for you to practice the <<edit-test-dance>>.
+
 
 [[edit-test-dance,edit-test dance]]
 .The edit-test dance
@@ -709,50 +718,10 @@ In a short time you'll be good at this dance. The next exercise should help.
 ****
 
 
-==== Exploring date and time formats
-
-If you want to explore how Go time format mini-language works in depth, try this
-text for `timeFormat`:
-
-[source,go]
-----
-  timeFormat = "01/02 03:04:05 PM '06 -0700"
-----
-
-Run `forever.go` again to see the result.
-
-Note the numbers from 1 to 7 in that `timeFormat` line. You can change the order
-of the elements however you like, but `1` will always stand for the month, `2`
-represents the day, `3` is the hour, `6` the year, etc. The `-0700` at the end
-sets the format of the time zone offsetfootnote:[Wikipedia has a brief article
-explaining the https://en.wikipedia.org/wiki/UTC_offset[UTC time zone offset].].
-
-A leading zero--as in `01`--makes numbers less than 10 appear with a zero prefix
-in the output. A leading underscore--like `_1`--will add a space to the left of
-numbers less than 10.
-
-Add, remove or move around the numbers in the formatting text and run the
-program to see what happens.
-
-Besides the digits `1` to `7`, other special numbers are `2006` to display the
-year with four digits, and `15` for the hour in 24-hour format--which makes
-sense if you remember that 3 is represents the hour, and 3PM is 15:00 in a
-24-hour clock. The digits `8` or `9` have no special meaning in the time format
-mini-language, so they always appear as themselves.
-
-Some texts are special: `Jan` or `January` spell out the month, `Mon` or
-`Monday` show the weekday, `PM` stands for AM/PM, and `MST` (Mountain Standard
-Time) is an alternate format for the time zone (MST is UTC -7, or -0700).
-
-Change the code to display the date in the formal British style: 9 July 1932.
-
-Other characters will appear as themselves, so you can use `/`, `-`, `:`, `,` or
-spaces as separators between the elements. For example, in Japan, a common
-format is `2006年01月02日`, similar to the Western `2006-01-02` with kanji
-characters--for year, month, and day--after each element of the date.
-
-Make your own experiments with these time formatting elements. Remember: the
-goal here is to practice the <<edit-test-dance>>.
+''''
+U+2571	╱	BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT
+U+2572	╲	BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT
+''''
 
 
 [[debugging]]

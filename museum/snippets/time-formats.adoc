@@ -1,0 +1,71 @@
+==== Experiments with `forever.go`
+
+Now we want to encourage you to experiment changing the program. Even without
+understanding all the code in <<lst-forever>>, here are a couple edits you can
+try. Make each change and and run the program again with `go run forever.go`.
+If there you make a mistake, try to understand what the error message is telling
+you.
+
+. Where would you edit <<lst-forever>> to make it show the time every 2
+  seconds, instead of every second?
+. Where would you change the program to show time in a different place in the
+  third column? Hint: you need to use a standard time zone name, which usually
+  consists of a region and a city name, for example `"America/Sao_Paulo"`.
+  Wikipedia has a https://tgo.li/2DEtVpr[list of standard time zones].
+. What happens if you use a time zone name that is not recognized, like
+  `"Middle-earth/Hobbiton"`? Pay close attention to the resulting message.
+. Change the text after `timeFormat =` from `"1/2 3:04:05 PM"` to
+  `"2006-01-02 15:04:05"` and explain what happens with the output.
+
+Many programming languages have mini-languages inside them. Go has a time
+formatting mini-language: a formal language based on the idea of expressing a
+date/time format through a concrete example, like `"3:04 PM"`.
+
+The last exercise in this chapter is not just about time formatting: the goal is
+for you to practice the <<edit-test-dance>>.
+
+
+==== Exploring date and time formats
+
+If you want to explore how Go time format mini-language works in depth, try this
+text for `timeFormat`:
+
+[source,go]
+----
+  timeFormat = "01/02 03:04:05 PM '06 -0700"
+----
+
+Run `forever.go` again to see the result.
+
+Note the numbers from 1 to 7 in that `timeFormat` line. You can change the order
+of the elements however you like, but `1` will always stand for the month, `2`
+represents the day, `3` is the hour, `6` the year, etc. The `-0700` at the end
+sets the format of the time zone offsetfootnote:[Wikipedia has a brief article
+explaining the https://en.wikipedia.org/wiki/UTC_offset[UTC time zone offset].].
+
+A leading zero--as in `01`--makes numbers less than 10 appear with a zero prefix
+in the output. A leading underscore--like `_1`--will add a space to the left of
+numbers less than 10.
+
+Add, remove or move around the numbers in the formatting text and run the
+program to see what happens.
+
+Besides the digits `1` to `7`, other special numbers are `2006` to display the
+year with four digits, and `15` for the hour in 24-hour format--which makes
+sense if you remember that 3 is represents the hour, and 3PM is 15:00 in a
+24-hour clock. The digits `8` or `9` have no special meaning in the time format
+mini-language, so they always appear as themselves.
+
+Some texts are special: `Jan` or `January` spell out the month, `Mon` or
+`Monday` show the weekday, `PM` stands for AM/PM, and `MST` (Mountain Standard
+Time) is an alternate format for the time zone (MST is UTC -7, or -0700).
+
+Change the code to display the date in the formal British style: 9 July 1932.
+
+Other characters will appear as themselves, so you can use `/`, `-`, `:`, `,` or
+spaces as separators between the elements. For example, in Japan, a common
+format is `2006年01月02日`, similar to the Western `2006-01-02` with kanji
+characters--for year, month, and day--after each element of the date.
+
+Make your own experiments with these time formatting elements. Remember: the
+goal here is to practice the <<edit-test-dance>>.
