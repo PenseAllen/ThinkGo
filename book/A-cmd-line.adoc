@@ -1,0 +1,11 @@
+[appendix]
+== Command-line essentials
+:sectnums:
+
+=== The bash shell for GNU/Linux and MacOS X
+
+
+=== The Windows PowerShell
+
+
+=== Embedding a shell in your editor

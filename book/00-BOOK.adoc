@@ -1,7 +1,10 @@
 = Think Go
 :toc:
-:sectnums:
 
 include::00-preface.adoc[]
 
 include::01-the-way.adoc[]
+
+include::A-cmd-line.adoc[]
+
+include::B-installing-go.adoc[]

@@ -1,5 +1,5 @@
 [[the-way-of-the-program]]
-== The way of the program
+== 1. The way of the program
 :imagesdir: ../img/01/
 :sourcedir: ../code/01/
 :sectnums:
@@ -76,7 +76,8 @@ browser. The https://play.golang.org/[Go Playground] lets you type or paste a Go
 program and click a button to run it, without installing anything. The playground
 is limited in many ways, but good enough to get started. After you’ve taken the
 first steps, we’ll provide instructions for installing Go on your
-computer.footnote:[If you can’t wait to install Go, Appendix A explains how.]
+computer.footnote:[If you can’t wait to install Go, <<appendix-installing>>
+explains how.]
 
 
 [[first-program]]
@@ -106,7 +107,7 @@ If you open that address in a browser, you’ll see a page similar to
 image::play-hello.png[Screenshot of the Go Playground with the hello.go program listing and output.]
 
 To execute the program, click the blue button labeled *Run*. You may briefly see
-the message "`Waiting for remote server…"`, and then the output will appear
+the message "`Waiting for remote server…`", and then the output will appear
 below the program listing, as pictured. Note that the output does not include
 the quotation marks around "`Hello, World!`" .
 
@@ -252,7 +253,8 @@ redundancy::
   Formal languages are less redundant and more concise.
 literalness::
   Natural languages are full of idiom and metaphor. If we say, "`The
-  penny dropped`", there is probably no penny and nothing droppingfootnote:[This idiom means that someone understood something after a period of confusion. It is a reference to old pay phones, operated by coins. The coin dropped when the connection was made.]. Formal languages mean exactly what they say.
+  penny dropped`", there is probably no penny and nothing dropping.footnote:[This idiom means that someone understood something after a period of confusion. It is a reference to old pay phones, operated by coins. The coin dropped when the connection was made.]
+  Formal languages mean exactly what they say.
 
 Because we all grow up speaking natural languages, it is sometimes hard
 to adjust to formal languages. The difference between formal and natural
@@ -274,10 +276,10 @@ Formal languages are more dense than natural languages, so it takes longer to
 read them. Also, the structure is important, so it is not always best to read
 from top to bottom, left to right. For example, if a `.go` file has a `main`
 function, that's where you should start reading the program--even if that is the
-last function in the filefootnote:[Some languages require or encourage placing
+last function in the file.footnote:[Some languages require or encourage placing
 the `main` function at the bottom of the file. Go doesn't care about the order
 of function declarations. But many programmers are used to putting `main` below
-all other functions anyway.]. With practice, you will learn to parse the program
+all other functions anyway.] With practice, you will learn to parse the program
 in your head, identifying the tokens and interpreting the structure. The most
 important tokens are the keywords: program structure is build around them.
 Finally, the details matter. Small errors in spelling and punctuation, which you
@@ -342,9 +344,9 @@ function to display a message on the screen:
 
 The name `Println` stands for "`print line`". Confusingly, programmers use the
 word _print_ to mean both "`display on the screen`" and "`send to the
-printer`"footnote:[The confusion comes from the 1950's, when computers had no
+printer`".footnote:[The confusion comes from the 1950's, when computers had no
 screens, only https://en.wikipedia.org/wiki/Teleprinter[teleprinters] attached
-to them.]. In this book, we’ll try to say "`display`" when a function outputs to
+to them.] In this book, we’ll try to say "`display`" when a function outputs to
 the screen.
 
 Go is "`case-sensitive`", which means that uppercase and lowercase letters are
@@ -399,10 +401,10 @@ programming, there are *low-level languages* and *high-level languages*.
 Go is a high-level language, which means it was designed to be easy to read by
 humans. Most high-level languages use English words and familiar symbols like `+`
 and `=` as part of their syntax. Other high-level languages you may have heard
-of include Java, JavaScript, Python, C, and PHPfootnote:[Java and JavaScript are
-very different languages related only by name, for misguided marketing reasons.
-Some say that Java and Javascript are similar like like "`car`" and "`carpet`"
-are similar.].
+of include Java, JavaScript, Python, C, and PHP.footnote:[Java and JavaScript
+are very different languages related only by name--for misguided marketing
+reasons. Some people say that Java and Javascript are similar like like "`car`"
+and "`carpet`" are similar.]
 
 In contrast, at the very low end of the scale there is *machine code*, which
 consists of numeric instruction codes that a computer can execute directly. The
@@ -425,9 +427,9 @@ The first computer programmers did manage to write and read programs in machine
 code, until https://en.wikipedia.org/wiki/Kathleen_Booth[Kathleen Booth]
 invented the first *assembly language*, a more readable notation for low-level
 programming. This is how the <<lst-func-main-hex>> looks like in assembly
-languagefootnote:[We used the excellent https://www.hopperapp.com/[Hopper
+language:footnote:[We used the excellent https://www.hopperapp.com/[Hopper
 Disassembler] app to extract the code shown in <<lst-func-main-hex>> and produce
-the <<lst-func-main-assembly>>.]:
+the <<lst-func-main-assembly>>.]
 
 [[lst-func-main-assembly,assembly language sample]]
 .The <<lst-hello-go>> `main` function in assembly language.
@@ -515,14 +517,15 @@ include::{sourcedir}now/now.go[]
 Compared to <<lst-hello-go>>, <<lst-now>> introduces two new features:
 
 . The `import` declaration now mentions two packages: `fmt` and `time`. When we
-need more than one package, they must written one per line in a list delimited
-by parenthesis (compare with <<lst-hello-go>>).
+need to import two or more packages, they must named one per line in a list
+delimited by parenthesis (compare with <<lst-hello-go>>).
 . In the second call to `fmt.Println`, instead of displaying a fixed text we use
 the `time.Now()` function to retrieve the current time.
 
 You can see the <<lst-now>> program in the playground at https://tgo.li/2rpsSst,
 but you will be disappointed: on the playground it will always say it is 11:00
-PM, November 10, 2009footnote:[That's when Go was announced to the public.].
+PM UTCfootnote:[Coordinated Universal Time, the time reference previously known
+as GMT], November 10, 2009--the date when Go was announced to the public.
 
 Our next task is to work around this problem.
 
@@ -530,9 +533,15 @@ Our next task is to work around this problem.
 [[running-go-programs-on-your-machine]]
 === Running Go programs on your machine
 
-The _Go Playground_ imposes several limitations for security reasons and to keep
-costs down. That's why <<lst-now>> always displays the same time there. The
-playground also hides important concepts and actions, which this section
+The _Go Playground_ imposes several limitations for security reasons and to
+manage costs. It's designed to run each source file submitted only once, save
+the result, and subsequently only send back the saved result.footnote:[This
+idea of sending canned results to save processing or network traffic is called
+"`caching`" and it is widely used in computing.] To ensure results can be
+stored for later use, the playground works on a fixed date and dime--rendering
+our <<lst-now>> useless.
+
+The playground also hides important concepts and actions, which this section
 reveals.
 
 Before it can run, Go source code must be translated to machine code by the
@@ -578,42 +587,23 @@ This machine believes it's now:
 <3> List files again. Note the `now` file.
 <4> Execute `now`.
 
-On the Windows command prompt, it’s very similar:
+On Windows PowerShell, the commands the same as above, but the output is bit
+different and the resulting file is named `now.exe`. You can omit the `./`
+prefix and the `.exe` suffix to run the executable:
 
 ----
-C:\…\now>dir /b <1>
-now.go
-
-C:\…\now>go build <2>
-
-C:\…\now>dir /b <3>
-now.exe
-now.go
-
-C:\…\now>now <4>
-This machine believes it's now:
-2018-03-25 16:08:21.7005402 -0300 -03 m=+0.002002601
-----
-<1> List files in directory--`/b` for brief listing. Only `now.go` is there.
-<2> Compile program in the current directory.
-<3> List files again. Note the `now` file.
-<4> Execute `now.exe`--it's OK to ommit the `.exe` part to run the program.
-
-The process of building and running simple programs is reduced to one step
-if you use the `go run` command. On the bash shell:
-
-----
-…/now$ go run now.go
+PS C:\…\now> now
 This machine believes it's now:
 2018-03-18 22:42:17.209165629 -0300 -03 m=+0.000340954
 ----
 
-On Windows:
+The process of building and running simple programs is reduced to one step
+if you use the `go run` command:
 
 ----
-C:\…\now>go run now.go
+…/now$ go run now.go
 This machine believes it's now:
-2018-03-25 16:11:55.922444 -0300 -03 m=+0.002000401
+2018-03-25 23:27:37.7083845 -0300 -03 m=+0.001999701
 ----
 
 This <<lst-now>> program is a bit more interesting than <<lst-hello-go>>: at
@@ -636,22 +626,21 @@ Listing <<lst-now2>> shows a program that the _Go Playground_ refuses to run.
 include::{sourcedir}now2/now2.go[]
 ----
 
-Visit that code in https://tgo.li/2GieQiH click the *Run* button to
-see what happens.
+Visit that code in https://tgo.li/2GieQiH click the *Run* button to see what
+happens.
 
 However, you can compile and run <<lst-now2>> on your machine using the `go
-run` or `go build` commands. That's next.
+run` or `go build` commands.
 
+We will explain all details of <<lst-now2>> in <<repetition-first-take>>.
+Now the goal is to practice compiling and running the program.
 
 ==== Using `go run`
-
-We will explain all details of <<lst-now2>> in XXX. Now the goal is to
-practice compiling and running the program.
 
 To execute <<lst-now2>> with `go run` on your machine, follow these steps:
 
 . Create a folder on your computer named `now2`.
-. Use your editor to create a file `now2.go` in the forever folder.
+. Use your editor to create a file `now2.go` in the `now2` folder.
 . Paste the source code of <<lst-now2>> in the `now2.go` file you just
   created. Save it.
 . Using the command-line, navigate to the `now2` folder.
@@ -671,7 +660,7 @@ After completing the previous exercise, you can compile <<lst-now2>> with
 . Run the `now` or `now2.exe` executable. See examples below.
 . To interrupt the program, use the keyboard combination kbd:[Ctrl+C].
 
-Here is how to run `forever` on the Mac OS X or GNU/Linux bash shell:
+Here is how to run `now2` on the Mac OS X or GNU/Linux bash shell:
 
 ----
 …/now$ ./now2
@@ -679,18 +668,13 @@ Here is how to run `forever` on the Mac OS X or GNU/Linux bash shell:
 ^C
 ----
 
-On the Windows command prompt, `now2.exe` is executed like this--note that
-you may omit the `.exe` extension to run the program:
-
-----
-C:\…\now> now2
-???
-^C
-----
+Remember that on Windows PowerShell you don't need to type `./`--just `now2` is
+enough to run the program.
 
 The output will not be `???`--we don't want to spoil the exercise for you. The
 `^C` is how the shell displays the kbd:[Ctrl+C] combination.
 
+[[repetition-first-take]]
 === Repetition: first take
 
 In <<what-is-a-program>> we saw that one of the five basic operations every
@@ -703,9 +687,9 @@ of the `for` keyword:
 [source,go]
 ----
 func main() {
-	for {  <1>
-		fmt.Println(time.Now())  <2>
-		time.Sleep(1 * time.Second)  <3>
+	for {  // <1>
+		fmt.Println(time.Now())  // <2>
+		time.Sleep(1 * time.Second)  // <3>
 	}
 }
 ----
@@ -714,34 +698,38 @@ func main() {
 <3> Pause for one second.
 
 Note that the `for` keyword is followed by a block of code inside a pair of
-braces `{…}`. In <<function-syntax>> we talked about the function body, which
-is the block that holds the statements inside a `func` declaration--also
-delimited by braces. In <<lst-now2b>> the body of the `main` function contains
-a single `for` statement, but that statement has its own block of statements
-with two lines: one with `fmt.Println`, the other with `time.Sleep`. In
-computing, nested structures are quite common: you'll get used to seeing blocks
-inside blocks inside other blocks.
+braces `{…}`. In <<function-syntax>> we talked about the function body: the
+brace-delimited block that holds the statements in a `func` declaration. In
+<<lst-now2b>> the body of the function contains a single `for` statement, but
+that statement has its own block of statements with two lines: one with
+`fmt.Println`, the other with `time.Sleep`. In computing, nested structures are
+quite common: you'll get used to seeing blocks inside blocks inside other
+blocks.
 
 The `for` statement in Go executes the statements in its block repeatedly. There
-are a few variations of `for` but the simplest one is shown in <<lst-now2b>>:
-`for {…}` repeats the block "`forever`"footnote:[In practice "`forever`" means
-until you interrupt the program with kbd:[Ctrl+C], or some other disruption
-affects the program or the computer itself--for example, Windows decides to
-restart to install the latest updates).
+are other variations of `for`, but the simplest one is this: `for {…}` repeats
+the block "`forever`".footnote:[In practice "`forever`" means until you
+interrupt the program with kbd:[Ctrl+C], or some other disruption affects the
+program--for example, Windows decides to restart to install the latest updates.]
 
 To make our program pause for a moment, we use `time.Sleep(…)`, which requires a
 numeric argument specifying the duration of the pause. The unit used by
-`time.Sleep` is the nanosecond, or 10^-9^ (^1^/~1.000.000.000~). For
-convenience, you can multiply the duration by one of the special values defined
-in the `time` package, such as `time.Hour`, `time.Second`, or
-`time.Millisecond`footnote[See
+`time.Sleep` is the nanosecond, or 10^-9^ (^1^/~1.000.000.000~)--so
+`time.Sleep(5)` makes a very short pause of 5ns. For convenience, you can
+multiply the duration by one of the special values defined in the `time`
+package, such as `time.Hour`, `time.Second`, or `time.Millisecond`.footnote:[See
 https://golang.org/pkg/time/#Duration[`time.Duration`] in the Go documentation
-for a list of predefined duration values.].
+for a list of predefined duration values.]
 
 ''''
 ░ ▒ ▓ █ ▄ ■ ▀ ·
 │ ─ ┐ └ ┘ ┌ ┼ ┤ ├ ┴ ┬
 ║ ═ ╗ ╚ ╝ ╔ ╬ ╣ ╠ ╩ ╦
+''''
+
+''''
+U+2571	╱	BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT
+U+2572	╲	BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT
 ''''
 
 [[edit-test-dance,edit-test dance]]
@@ -773,12 +761,6 @@ edit-test dance becomes:
 
 In a short time you'll be good at this dance. The next exercise should help.
 ****
-
-
-''''
-U+2571	╱	BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT
-U+2572	╲	BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT
-''''
 
 
 [[debugging]]

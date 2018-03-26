@@ -1,13 +1,14 @@
 [preface]
-[[preface_sec]]
 == Preface
 
-*Think Go* is part of a growing collection started by Allen Downey in 1999. The first was *How to Think Like a Computer Scientist*, self-published under the GNU Free Documentation License. That book used the Java language, but the focus was on programming, not the language. It was short and carefully written to offer a gradual learning path. Jargon was kept to a minimum and each technical term was defined when first used.
+*Think Go* is part of a growing collection of books started by Allen Downey in 1999. The first was *How to Think Like a Computer Scientist*, self-published under the GNU Free Documentation License. That book used the Java language, but the focus was on programming, not the language. It was short and carefully written to offer a gradual learning path. Jargon was kept to a minimum and each technical term was defined when first used.
 
-Jeff Elkner realized Downey's book would be great for his high school students, and took advantage of the liberal license to convert the book to use Python instead. The result was *How to Think Like a Computer Scientist: Learning With Python*, published in 2001 by Downeys's Green Tea Press. There are now variations of *How to Think…* in C, C++, and OCaml -- besides Java and Python.
+Jeff Elkner realized Downey's book would be great for his high school students, and took advantage of the permissive license to convert the book to use Python instead. The result was *How to Think Like a Computer Scientist: Learning With Python*, published in 2001 by Downeys's Green Tea Press. There are now variations of *How to Think…* in C, C++, and OCaml -- besides Java and Python.
 
 In 2012, Allen Downey did a significant rewrite that resulted in *Think Python*, now in its 2^nd^ edition (O'Reilly, 2015). Chris Mayfield joined Downey to write *Think Java*, and Laurent Rosenfeld wrote *Think Perl 6*.
 
-*Think Go* builds on the solid foundation laid by Downey, Elkner, and Mayfield. I believe Go is an excellent language for an introduction to programming, thanks to its simple syntax and straightforward semantics. As with Downey's original book, the focus here is on learning to program and not on covering every detail of Go and its packages. The examples use idiomatic Go code as much as possible -- except when introducing a new language feature would cause a significant detour from the topic at hand.
+*Think Go* builds on the solid foundation laid by Downey, Elkner, and Mayfield. I am not just inspired by them--this is a remix of new material with whole paragraphs and sections from their books. I can do that thanks to their generosity in choosing to publish using licenses that allow remixing.
+
+I believe Go is an excellent language for an introduction to programming, thanks to its simple syntax and straightforward semantics. As with Downey's original book, the focus here is on learning to program and not on covering every detail of the language and its packages. The examples use idiomatic Go code as much as possible -- except when introducing a new language feature would cause a significant detour from the topic at hand.
 
 I will try to make *Thing Go* as clear and engaging as I found Downey & Elkner's book when I read it in 2002. I am counting on your feedback to make it so. You can reach me on Twitter as https://twitter.com/standupdev/[@standupdev], file issues in the book's https://github.com/PenseAllen/ThinkGo/issues[Github repository] or send me e-mail: `labgo@ramalho.org`.

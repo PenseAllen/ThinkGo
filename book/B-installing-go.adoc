@@ -1,0 +1,11 @@
+[appendix]
+== Installing Go
+:sectnums:
+
+=== GNU/Linux
+
+=== MacOS X
+
+=== Windows
+
+=== The standard Go directory structure
