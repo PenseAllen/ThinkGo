@@ -1,4 +1,5 @@
 [appendix]
+[[appendix-installing]]
 == Installing Go
 :sectnums:
 

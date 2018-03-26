@@ -5,9 +5,9 @@
 
 Jeff Elkner realized Downey's book would be great for his high school students, and took advantage of the permissive license to convert the book to use Python instead. The result was *How to Think Like a Computer Scientist: Learning With Python*, published in 2001 by Downeys's Green Tea Press. There are now variations of *How to Think…* in C, C++, and OCaml -- besides Java and Python.
 
-In 2012, Allen Downey did a significant rewrite that resulted in *Think Python*, now in its 2^nd^ edition (O'Reilly, 2015). Chris Mayfield joined Downey to write *Think Java*, and Laurent Rosenfeld wrote *Think Perl 6*.
+In 2012, Allen Downey did a significant rewrite and added even more varied and inspiring examples. The result was *Think Python*, now in its 2^nd^ edition (O'Reilly, 2015). Chris Mayfield joined Downey to write *Think Java*, and Laurent Rosenfeld wrote *Think Perl 6*.
 
-*Think Go* builds on the solid foundation laid by Downey, Elkner, and Mayfield. I am not just inspired by them--this is a remix of new material with whole paragraphs and sections from their books. I can do that thanks to their generosity in choosing to publish using licenses that allow remixing.
+*Think Go* builds on the solid foundation laid by Downey, Elkner, and Mayfield. I am not just inspired by their approach--this is a remix of new material with whole paragraphs and sections from their books. I can do that thanks to their generosity in choosing to publish using GNU and Creative Commons licenses that allow remixing.
 
 I believe Go is an excellent language for an introduction to programming, thanks to its simple syntax and straightforward semantics. As with Downey's original book, the focus here is on learning to program and not on covering every detail of the language and its packages. The examples use idiomatic Go code as much as possible -- except when introducing a new language feature would cause a significant detour from the topic at hand.
 

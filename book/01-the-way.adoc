@@ -632,7 +632,7 @@ happens.
 However, you can compile and run <<lst-now2>> on your machine using the `go
 run` or `go build` commands.
 
-We will explain all details of <<lst-now2>> in <<repetition-first-take>>.
+We will explain all details of <<lst-now2>> in <<repeat-forever>>.
 Now the goal is to practice compiling and running the program.
 
 ==== Using `go run`
@@ -674,8 +674,8 @@ enough to run the program.
 The output will not be `???`--we don't want to spoil the exercise for you. The
 `^C` is how the shell displays the kbd:[Ctrl+C] combination.
 
-[[repetition-first-take]]
-=== Repetition: first take
+[[repeat-forever]]
+=== Repeat forever
 
 In <<what-is-a-program>> we saw that one of the five basic operations every
 language allows is output: that's all that <<lst-hello-go>> and <<lst-now>> do.
@@ -708,9 +708,7 @@ blocks.
 
 The `for` statement in Go executes the statements in its block repeatedly. There
 are other variations of `for`, but the simplest one is this: `for {…}` repeats
-the block "`forever`".footnote:[In practice "`forever`" means until you
-interrupt the program with kbd:[Ctrl+C], or some other disruption affects the
-program--for example, Windows decides to restart to install the latest updates.]
+the block "`forever`".
 
 To make our program pause for a moment, we use `time.Sleep(…)`, which requires a
 numeric argument specifying the duration of the pause. The unit used by
@@ -726,6 +724,9 @@ for a list of predefined duration values.]
 │ ─ ┐ └ ┘ ┌ ┼ ┤ ├ ┴ ┬
 ║ ═ ╗ ╚ ╝ ╔ ╬ ╣ ╠ ╩ ╦
 ''''
+
+XXX
+
 
 ''''
 U+2571	╱	BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT
