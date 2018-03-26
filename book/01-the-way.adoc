@@ -719,20 +719,17 @@ package, such as `time.Hour`, `time.Second`, or `time.Millisecond`.footnote:[See
 https://golang.org/pkg/time/#Duration[`time.Duration`] in the Go documentation
 for a list of predefined duration values.]
 
-''''
+----
 ░ ▒ ▓ █ ▄ ■ ▀ ·
 │ ─ ┐ └ ┘ ┌ ┼ ┤ ├ ┴ ┬
 ║ ═ ╗ ╚ ╝ ╔ ╬ ╣ ╠ ╩ ╦
-
-''''
-
-XXX
+----
 
 
-''''
+----
 U+2571	╱	BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT
 U+2572	╲	BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT
-''''
+----
 
 [[edit-test-dance,edit-test dance]]
 .The edit-test dance
