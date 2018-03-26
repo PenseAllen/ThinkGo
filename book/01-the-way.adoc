@@ -372,7 +372,7 @@ removing one or both parenthesis.
 one of the quotation marks, or both?
 . Add another statement calling `fmt.Println("...")` below the first one, putting
 your own text between the quotes.
-. Write a program that displays the E. E. Cummings poem known as "`l(a"`
+. Write a program that displays the E. E. Cummings poem known as "`l(a`"
 precisely as shown below. Note that the poem includes 4 blank lines.
 
 ....
@@ -483,7 +483,8 @@ As you learn to think like a computer scientist, you'll meet some very
 powerful ideas. This is one:
 
 ____
-We can write programs that translate programs from one language to another.
+We can write programs that translate programs from one programming language to
+another.
 ____
 
 When we program in a language that needs to be translated to run, the text we
@@ -517,7 +518,7 @@ include::{sourcedir}now/now.go[]
 Compared to <<lst-hello-go>>, <<lst-now>> introduces two new features:
 
 . The `import` declaration now mentions two packages: `fmt` and `time`. When we
-need to import two or more packages, they must named one per line in a list
+need to import two or more packages, they must be named one per line in a list
 delimited by parenthesis (compare with <<lst-hello-go>>).
 . In the second call to `fmt.Println`, instead of displaying a fixed text we use
 the `time.Now()` function to retrieve the current time.
@@ -538,7 +539,7 @@ manage costs. It's designed to run each source file submitted only once, save
 the result, and subsequently only send back the saved result.footnote:[This
 idea of sending canned results to save processing or network traffic is called
 "`caching`" and it is widely used in computing.] To ensure results can be
-stored for later use, the playground works on a fixed date and dime--rendering
+stored for later use, the playground works on a fixed date and time--rendering
 our <<lst-now>> useless.
 
 The playground also hides important concepts and actions, which this section
@@ -718,48 +719,6 @@ multiply the duration by one of the special values defined in the `time`
 package, such as `time.Hour`, `time.Second`, or `time.Millisecond`.footnote:[See
 https://golang.org/pkg/time/#Duration[`time.Duration`] in the Go documentation
 for a list of predefined duration values.]
-
-----
-░ ▒ ▓ █ ▄ ■ ▀ ·
-│ ─ ┐ └ ┘ ┌ ┼ ┤ ├ ┴ ┬
-║ ═ ╗ ╚ ╝ ╔ ╬ ╣ ╠ ╩ ╦
-----
-
-
-----
-U+2571	╱	BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT
-U+2572	╲	BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT
-----
-
-[[edit-test-dance,edit-test dance]]
-.The edit-test dance
-****
-
-Programmers spend a lot of time repeating these steps:
-
-. Edit the source code.
-. Test the code.
-. Go back to editor and change something.
-. Test the code again.
-. Repeat until done.
-
-TIP: A good way of doing the edit-test cycle is to have the editor in one window
-and the terminal/console in another window, and alternate between them using the
-shortcut for your system: kbd:[ALT+TAB] on Windows and GNU/Linux, or kbd:[⌘+TAB]
-on MacOS. Also, use the kbd:[↑] (up arrow) to repeat commands on the command
-line without typing them again.
-
-Using the app switching shortcut on a Windows or GNU/Linux machine, the
-edit-test dance becomes:
-
-. Edit the source code.
-. kbd:[ALT+TAB] to go to the terminal/console.
-. kbd:[↑] to repeat the previous `go run forever.go` without typing it again.
-. kbd:[ENTER] to run the command.
-. kbd:[ALT+TAB] to go back to the editor.
-
-In a short time you'll be good at this dance. The next exercise should help.
-****
 
 
 [[debugging]]
