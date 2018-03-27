@@ -4,6 +4,9 @@
 *.sublime-*
 .idea/
 
+# MacOS X droppings
+.DS_Store
+
 # Binaries for programs and plugins
 *.exe
 *.dll
