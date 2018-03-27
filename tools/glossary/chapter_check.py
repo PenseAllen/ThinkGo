@@ -45,11 +45,11 @@ def main(text_name):
             print('\t' + term)
 
     entries = find_entries(text)
-    print('ORPHAN TERMS:')
+    print('TERMS WITHOUT DEFINITIONS:')
     for term in sorted(terms-entries):
         print('\t' + term)
 
-    print('ORPHAN ENTRIES:')
+    print('DEFINITIONS FOR UNUSED TERMS:')
     for term in sorted(entries-terms):
         print('\t' + term)
 
