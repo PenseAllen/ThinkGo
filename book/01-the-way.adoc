@@ -87,14 +87,14 @@ Traditionally, the first program you write when learning a new programming
 language is called the hello world program. All it does is display the words
 "`Hello, World!`" on the screen. In Go, it looks like this:
 
-[[lst-hello-go]]
+[[lst-hello]]
 .`hello.go`
 [source,go]
 ----
 include::{sourcedir}hello/hello.go[]
 ----
 
-We typed the <<lst-hello-go>> program and saved it in the playground. Follow
+We typed the <<lst-hello>> program and saved it in the playground. Follow
 this link to see it:
 
 https://tgo.li/2r8yCXj
@@ -111,7 +111,7 @@ the message "`Waiting for remote server…`", and then the output will appear
 below the program listing, as pictured. Note that the output does not include
 the quotation marks around "`Hello, World!`" .
 
-We want to invite you to edit <<lst-hello-go>>, but we need words to describe
+We want to invite you to edit <<lst-hello>>, but we need words to describe
 parts of a program so we can talk about it. The next section covers some basic
 terms.
 
@@ -124,7 +124,7 @@ Go programs are made up of *declarations*. Every Go declaration starts with a
 a vertebrate. Because they are special, many program editors display keywords in
 a distinctive color or in `*bold*` type.
 
-In listing <<lst-hello-go>> we have three declarations: `*package*`, `*import*`,
+In listing <<lst-hello>> we have three declarations: `*package*`, `*import*`,
 and `*func*`. We’ll have a lot more to say about those declarations, but
 basically this is what they mean:
 
@@ -139,7 +139,7 @@ basically this is what they mean:
   formatting and output functionality.
 `*func*`::
   This declares a *function*, which is a sequence of instructions that
-  perform some computation or action. The only function in <<lst-hello-go>>
+  perform some computation or action. The only function in <<lst-hello>>
   is named `main`. The `main` function uses the `fmt.Println` function. That's
   why we needed to import the `fmt` package.
 
@@ -156,7 +156,7 @@ devoted to them. For now, let's focus on the overall program structure.
 
 It is a good idea to read this book in front of a computer so you can try out
 the examples as you go. In this exercise, we’ll use the _Go Playground_ to learn
-about the structure of the <<lst-hello-go>> program.
+about the structure of the <<lst-hello>> program.
 
 Whenever you are experimenting with a new feature, you should try to make
 mistakes. This kind of experiment helps you remember what you read; it also
@@ -164,7 +164,7 @@ helps when you are programming, because you get to know what the error messages
 mean. It is better to make mistakes now and on purpose than later and
 accidentally.
 
-Start with <<lst-hello-go>> in the _Go Playground_ and make the changes
+Start with <<lst-hello>> in the _Go Playground_ and make the changes
 suggested here.
 
 After each change, hit the *Run* button to see what happens. Pay special
@@ -290,7 +290,7 @@ language.
 [[function-syntax]]
 === Anatomy of a function
 
-Let’s take a closer look at the syntax of `main` function from <<lst-hello-go>>:
+Let’s take a closer look at the syntax of `main` function from <<lst-hello>>:
 
 [[lst-func-main,the main function]]
 .The main function.
@@ -357,7 +357,7 @@ letter; `println` and `PRINTLN` won’t work.
 [[exercises-1-2]]
 === Exercises
 
-Once again, start with <<lst-hello-go>> in the _Go Playground_ and make the
+Once again, start with <<lst-hello>> in the _Go Playground_ and make the
 changes suggested here. To recover the original program text, just visit that
 same URL:
 
@@ -408,11 +408,11 @@ and "`carpet`" are similar.]
 
 In contrast, at the very low end of the scale there is *machine code*, which
 consists of numeric instruction codes that a computer can execute directly. The
-<<lst-func-main-hex>> below is the `main` function from <<lst-hello-go>> written
+<<lst-func-main-hex>> below is the `main` function from <<lst-hello>> written
 in machine code for an Intel-compatible machine of the year 2018:
 
 [[lst-func-main-hex,machine code sample]]
-.The <<lst-hello-go>> `main` function in machine code.
+.The <<lst-hello>> `main` function in machine code.
 [source]
 ----
 64 48 8b 0c 25 f8 ff ff ff 48 3b 61 10 76 58 48 83 ec 48 48
@@ -432,7 +432,7 @@ Disassembler] app to extract the code shown in <<lst-func-main-hex>> and produce
 the <<lst-func-main-assembly>>.]
 
 [[lst-func-main-assembly,assembly language sample]]
-.The <<lst-hello-go>> `main` function in assembly language.
+.The <<lst-hello>> `main` function in assembly language.
 [source]
 .Assembly listing for the instructions in <<lst-func-main-hex>>.
 [source]
@@ -488,7 +488,7 @@ another.
 ____
 
 When we program in a language that needs to be translated to run, the text we
-write is called the *source code*. Listing <<lst-hello-go>> is an example of
+write is called the *source code*. Listing <<lst-hello>> is an example of
 source code.
 
 The next section will show a program that will only work correctly if you run it
@@ -515,11 +515,11 @@ Sun Mar 25 20:19:21 UTC 2018
 include::{sourcedir}now/now.go[]
 ----
 
-Compared to <<lst-hello-go>>, <<lst-now>> introduces two new features:
+Compared to <<lst-hello>>, <<lst-now>> introduces two new features:
 
 . The `import` declaration now mentions two packages: `fmt` and `time`. When we
 need to import two or more packages, they must be named one per line in a list
-delimited by parenthesis (compare with <<lst-hello-go>>).
+delimited by parenthesis (compare with <<lst-hello>>).
 . In the second call to `fmt.Println`, instead of displaying a fixed text we use
 the `time.Now()` function to retrieve the current time.
 
@@ -607,118 +607,14 @@ This machine believes it's now:
 2018-03-25 23:27:37.7083845 -0300 -03 m=+0.001999701
 ----
 
-This <<lst-now>> program is a bit more interesting than <<lst-hello-go>>: at
-least on your machine it should display a different time each time it runs.
-In the next exercise will you will build a more interesting variation, the
-simplest text-based "`animated`" clock we could imagine in Go.
+We can control the format of the date and time display, but we'll need to wait
+until XXX to see how--the solution involves new syntax and concepts that we'll
+introduce gradually.
 
-
-[[exercises-1-3]]
-=== Exercises
-
-==== Trying and failing in the playground
-
-Listing <<lst-now2>> shows a program that the _Go Playground_ refuses to run.
-
-[[lst-now2]]
-.`now2.go`
-[source,go]
-----
-include::{sourcedir}now2/now2.go[]
-----
-
-Visit that code in https://tgo.li/2GieQiH click the *Run* button to see what
-happens.
-
-However, you can compile and run <<lst-now2>> on your machine using the `go
-run` or `go build` commands.
-
-We will explain all details of <<lst-now2>> in <<repeat-forever>>.
-Now the goal is to practice compiling and running the program.
-
-==== Using `go run`
-
-To execute <<lst-now2>> with `go run` on your machine, follow these steps:
-
-. Create a folder on your computer named `now2`.
-. Use your editor to create a file `now2.go` in the `now2` folder.
-. Paste the source code of <<lst-now2>> in the `now2.go` file you just
-  created. Save it.
-. Using the command-line, navigate to the `now2` folder.
-. Type the command `go run now2.go` to build and execute the program.
-. To interrupt the program, use the keyboard combination kbd:[Ctrl+C].
-
-Can you explain why the _Go Playground_ refuses to run this program?
-
-
-==== Using `go build`
-
-After completing the previous exercise, you can compile <<lst-now2>> with
-`go build` doing this:
-
-. Type the command `go build`. This creates the `now2` executable file
-  (`now2.exe` on Windows).
-. Run the `now` or `now2.exe` executable. See examples below.
-. To interrupt the program, use the keyboard combination kbd:[Ctrl+C].
-
-Here is how to run `now2` on the Mac OS X or GNU/Linux bash shell:
-
-----
-…/now$ ./now2
-???
-^C
-----
-
-Remember that on Windows PowerShell you don't need to type `./`--just `now2` is
-enough to run the program.
-
-The output will not be `???`--we don't want to spoil the exercise for you. The
-`^C` is how the shell displays the kbd:[Ctrl+C] combination.
-
-[[repeat-forever]]
-=== Repeat forever
-
-In <<what-is-a-program>> we saw that one of the five basic operations every
-language allows is output: that's all that <<lst-hello-go>> and <<lst-now>> do.
-But <<lst-now2b>> shows another basic operation: repetition. That's the purpose
-of the `for` keyword:
-
-[[lst-now2b]]
-.`main` from `now2.go`
-[source,go]
-----
-func main() {
-	for {  // <1>
-		fmt.Println(time.Now())  // <2>
-		time.Sleep(1 * time.Second)  // <3>
-	}
-}
-----
-<1> Repeat the two statements in the enclosed block forever.
-<2> Display the current time.
-<3> Pause for one second.
-
-Note that the `for` keyword is followed by a block of code inside a pair of
-braces `{…}`. In <<function-syntax>> we talked about the function body: the
-brace-delimited block that holds the statements in a `func` declaration. In
-<<lst-now2b>> the body of the function contains a single `for` statement, but
-that statement has its own block of statements with two lines: one with
-`fmt.Println`, the other with `time.Sleep`. In computing, nested structures are
-quite common: you'll get used to seeing blocks inside blocks inside other
-blocks.
-
-The `for` statement in Go executes the statements in its block repeatedly. There
-are other variations of `for`, but the simplest one is this: `for {…}` repeats
-the block "`forever`".
-
-To make our program pause for a moment, we use `time.Sleep(…)`, which requires a
-numeric argument specifying the duration of the pause. The unit used by
-`time.Sleep` is the nanosecond, or 10^-9^ (^1^/~1.000.000.000~)--so
-`time.Sleep(5)` makes a very short pause of 5ns. For convenience, you can
-multiply the duration by one of the special values defined in the `time`
-package, such as `time.Hour`, `time.Second`, or `time.Millisecond`.footnote:[See
-https://golang.org/pkg/time/#Duration[`time.Duration`] in the Go documentation
-for a list of predefined duration values.]
+The <<lst-now>> program is a bit more interesting than <<lst-hello>>: at least
+on your machine it should display a different time each time it runs. In the
+next chapter we'll improve on it, using repetition to keep updating the time.
+Repetition will also let us explore a primitive form of computer art.
 
 
 [[debugging]]
@@ -752,7 +648,7 @@ for many activities beyond programming. At the end of each chapter there is a
 section, like this one, with my suggestions for debugging. we hope they help!
 
 
-[[glossary]]
+[[glossary-1]]
 === Glossary
 
 assembler::

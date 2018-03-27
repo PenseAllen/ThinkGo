@@ -5,6 +5,8 @@ include::00-preface.adoc[]
 
 include::01-the-way.adoc[]
 
+include::02-infinite-loops.adoc[]
+
 include::A-cmd-line.adoc[]
 
 include::B-installing-go.adoc[]
