@@ -471,7 +471,7 @@ in school.
 
 Another pioneering programmer, https://en.wikipedia.org/wiki/Grace_Hopper[Grace
 Hopper], created the first *compiler*: a program that can read a program
-written in a high-level language and write and equivalent program in machine
+written in a high-level language and output an equivalent program in machine
 code. Since then, we are able to write `x / y` and the compiler then generates
 all the machine code instructions needed to divide two numbers in one specific
 computer.
@@ -518,7 +518,8 @@ include::{sourcedir}now/now.go[]
 Compared to <<lst-hello>>, <<lst-now>> introduces two new features:
 
 . The `import` declaration now mentions two packages: `fmt` and `time`. When we
-need to import two or more packages, they must be named one per line in a list
+need to import two or more packages, you can use multiple `import` declarations
+or you can use only one and name the packages one per line in a list
 delimited by parenthesis (compare with <<lst-hello>>).
 . In the second call to `fmt.Println`, instead of displaying a fixed text we use
 the `time.Now()` function to retrieve the current time.
@@ -535,7 +536,7 @@ Our next task is to work around this problem.
 === Running Go programs on your machine
 
 The _Go Playground_ imposes several limitations for security reasons and to
-manage costs. It's designed to run each source file submitted only once, save
+keep costs down. It's designed to run each source file submitted only once, save
 the result, and subsequently only send back the saved result.footnote:[This
 idea of sending canned results to save processing or network traffic is called
 "`caching`" and it is widely used in computing.] To ensure results can be
@@ -588,7 +589,7 @@ This machine believes it's now:
 <3> List files again. Note the `now` file.
 <4> Execute `now`.
 
-On Windows PowerShell, the commands the same as above, but the output is bit
+On Windows PowerShell, the commands the same as above, but the output is a bit
 different and the resulting file is named `now.exe`. You can omit the `./`
 prefix and the `.exe` suffix to run the executable:
 

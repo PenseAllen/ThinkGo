@@ -14,4 +14,4 @@ I've done significant writing using *ReStructuredText* (*ReST*), *Markdown*, and
 
 The https://asciidoctor.org/[AsciiDoctor] toolchain in *Ruby* renders AsciiDoc in multiple formats. *AsciiDoctor* is more actively maintained than https://github.com/asciidoc[asciidoc], which had no releases from 2014 to 2016 and is still using *Python 2* in 2018.
 
-To write, I am using the *Atom* editor with the https://atom.io/packages/asciidoc-assistant[AsciiDoc Assistant] package -- though I had to install its sub-packages one by one, and I still can't use *asciidoc-preview* due to a key binding conflict I don't know how to solve. To preview, I am using the https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/[Asciidoctor.js Live Preview] plugin for *Firefox*.
+To write, I am using the *Atom* editor with the https://atom.io/packages/asciidoc-assistant[AsciiDoc Assistant] package -- though I had to install its sub-packages one by one. To preview in another window, I use the https://addons.mozilla.org/en-US/firefox/addon/asciidoctorjs-live-preview/[Asciidoctor.js Live Preview] add-on for *Firefox*.
