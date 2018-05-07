@@ -7,7 +7,7 @@ import (
 
 func main() {
 	for {
-		fmt.Print("╱╲╱") // better: ╱╲
+		fmt.Print("╱╲╱") // even better: ╱╲╱
 		time.Sleep(5 * time.Millisecond)
 	}
 }

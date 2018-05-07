@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"time"
 )
 
 func main() {
 	for {
-		fmt.Print(os.Args[1])
+		fmt.Print("J. Random Hacker ")
 		time.Sleep(10 * time.Millisecond)
 	}
 }

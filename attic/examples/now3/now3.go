@@ -6,7 +6,8 @@ import (
 )
 
 const (
-	timeFormat = "1 2 3 4 5 06 -07"
+	numericFields = "1 2 3 4 5 06 -07"
+  timeFormat = "Jan 02, 15:04:05"
 )
 
 func main() {
