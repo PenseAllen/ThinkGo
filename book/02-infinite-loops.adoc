@@ -1,5 +1,5 @@
 [[infinite-loop]]
-== 2. Lab: infinite loops
+== 2. Lab: Infinite Loops
 :imagesdir: ../img/02/
 :sourcedir: ../code/02/
 :sectnums:
@@ -40,8 +40,8 @@ happens.
 However, you can compile and run <<lst-now2>> on your machine using the `go
 run` or `go build` commands.
 
-We will explain all details of <<lst-now2>> in <<repeat-forever>>.
-Now the goal is to practice compiling and running the program.
+We will discuss the code <<lst-now2>> in <<repeat-forever>>. Now the goal is to
+practice compiling and running the program.
 
 
 ==== Using `go run`
@@ -61,8 +61,7 @@ Can you explain why the _Go Playground_ refuses to run this program?
 
 ==== Using `go build`
 
-After completing the previous exercise, you can compile <<lst-now2>> with
-`go build` doing this:
+Compile <<lst-now2>> on your machine using `go build`. Procedure:
 
 . Type the command `go build`. This creates the `now2` executable file
   (`now2.exe` on Windows).
@@ -91,8 +90,8 @@ combination we use to interrupt the program.
 
 In <<what-is-a-program>> we saw that one of the five basic operations every
 language allows is output: that's all that <<lst-hello-go>> and <<lst-now>> do.
-But <<lst-now2b>> shows another basic operation: repetition. That's the purpose
-of the `for` keyword:
+Another basic operation is repetition, shown in <<lst-now2b>>. The purpose of
+the `for` keyword is to execute a block of code repeatedly:
 
 [[lst-now2b]]
 .`main` from `now2.go`
@@ -109,14 +108,11 @@ func main() {
 <2> Display the current time.
 <3> Pause for one second.
 
-Note that the `for` keyword is followed by a block of code inside a pair of
-braces `{…}`. In <<function-syntax>> we talked about the function body: the
-brace-delimited block that holds the statements in a `func` declaration. In
-<<lst-now2b>> the body of the function contains a single `for` statement, but
-that statement has its own block of statements with two lines: one with
-`fmt.Println`, the other with `time.Sleep`.
+As seen in other examples, the `func` declaration includes a block of code
+delimited by braces `{…}`. The `for` statement also includes block of code
+inside a pair of braces `{…}`.
 
-In computing, nested structures are very common. A picture may be useful:
+Nested structures are very common in programming. A picture may be useful:
 https://en.wikipedia.org/wiki/Matryoshka_doll[Matryoshka dolls] are nested
 structures in the real world. The structure of <<lst-now2>> is similar to this
 picture:
@@ -124,6 +120,9 @@ picture:
 [[fig-matryoshka, Russian Matryoshka dolls]]
 .`func main` is the outer declaration. Inside it there is a `for` statement, which contains two statements.
 image::matryoshka-labels.jpg["Two Matryoshka dolls split open, with the tops set aside and the bottoms nested. The bigger doll is labeled `func main`, the smaller is `for`. Inside the nested bottoms there are two labels: `fmt.Println` and `time.Sleep`."]
+
+In general, declarations or statements that include blocks can have other
+declarations or statements nested with their own blocks.
 
 The `for` statement in Go executes the statements in its block repeatedly. There
 are other, more common variations of `for`, but the simplest one is this: `for {…}`.
@@ -199,7 +198,7 @@ We will skip the details about the expression after the `PRINT`. It's enough to
 say that it randomly picks one of two characters to display: `╱` or `╲`.
 
 The maze drawing one-liner is such a classic that decades later it inspired an
-entire book about computer generated art.footnote:[The book is XXX]. In the next
+entire book about computer generated art.footnote:[The book is actually titled https://mitpress.mit.edu/books/10-print-chr2055rnd1-goto-10[10 PRINT CHR$(205.5+RND(1)); : GOTO 10]]. In the next
 experiments we will play with programs that generate patterns on the screen,
 including one that draws mazes similar to [[fig-maze-commodore]].
 
