@@ -9,9 +9,9 @@ import (
 func main() {
 	for {
 		if rand.Intn(2) == 0 {
-			fmt.Print("/") // better: ╱
+			fmt.Print("╱") // BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT
 		} else {
-			fmt.Print("\\") // better: ╲
+			fmt.Print("╲") // BOX DRAWINGS LIGHT DIAGONAL UPPER LEFT TO LOWER RIGHT
 		}
 		time.Sleep(5 * time.Millisecond)
 	}
